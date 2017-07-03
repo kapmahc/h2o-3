@@ -9,3 +9,5 @@
 root = User.new email:ENV['MANAGER'], name: 'root', password: 'changeme'
 root.skip_confirmation!
 root.save
+
+%w(root admin).each {|n| root.add_role n}

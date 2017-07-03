@@ -2,8 +2,8 @@
 <footer>
   <p class="float-right">
     <%= t '.all-languages' %>:
-    <% %w(en zh-CN zh-TW).each do |l| %>
-        <%= link_to t(".#{l}"), root_path(locale: l), target: :_blank %>
+    <% Setting.languages.each do |k, v| %>
+        <%= link_to v, root_path(locale: k), target: :_blank %>
     <% end %>
   </p>
   <p>

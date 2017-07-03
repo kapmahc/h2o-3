@@ -58,7 +58,7 @@ end
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n'
 
 gem 'jquery-rails'
-gem 'bootstrap', github: 'twbs/bootstrap-rubygem'
+gem 'bootstrap', github: 'twbs/bootstrap-rubygem' #  '~> 4.0.0.alpha6' #
 gem 'font-awesome-rails'
 
 gem 'simple_form'

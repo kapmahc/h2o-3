@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  post '/search' => 'home#search'
+
   devise_for :users
 
   authenticate :user, lambda { |u| u.is_admin? } do

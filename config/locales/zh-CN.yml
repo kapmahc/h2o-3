@@ -4,8 +4,8 @@ zh-CN:
       user:
         name: 姓名
   shared:
+    search-form:
+      hint: 点击此处输入
+      submit: 搜索
     footer:
       all-languages: 本站的其它语言版本
-      en: English
-      zh-CN: 简体中文
-      zh-TW: 繁體中文

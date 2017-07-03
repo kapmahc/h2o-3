@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%= display_meta_tags site: Setting["#{locale}.site.title"],
                         description: Setting["#{locale}.site.description"],
                         keywords: Setting["#{locale}.site.keywords"],
@@ -12,6 +14,7 @@
 </head>
 
 <body>
+<%= render 'shared/header'%>
 <div class="container">
   <%= render 'shared/flash' %>
   <%= yield %>

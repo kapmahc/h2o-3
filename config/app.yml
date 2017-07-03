@@ -1,5 +1,9 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
+  languages:
+    en: English
+    zh-CN: 简体中文
+    zh-TW: 繁體中文
   zh-CN:
     footer:
       links:

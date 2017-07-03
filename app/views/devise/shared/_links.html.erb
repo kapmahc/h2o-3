@@ -1,21 +1,22 @@
+<br/>
 <%- if controller_name != 'sessions' %>
-    <%= link_to t(".sign_in"), new_session_path(resource_name) %><br/>
+    <%= fa_icon 'sign-in' %> <%= link_to t(".sign_in"), new_session_path(resource_name) %><br/>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br/>
+    <%= fa_icon 'user-plus' %> <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br/>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-    <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br/>
+    <%= fa_icon 'key' %> <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br/>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-    <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br/>
+    <%= fa_icon 'check-circle' %> <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br/>
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-    <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name) %><br/>
+    <%= fa_icon 'unlock' %> <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name) %><br/>
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
@@ -24,3 +25,5 @@
         <br/>
     <% end -%>
 <% end -%>
+
+<%= fa_icon 'commenting' %> <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br/>

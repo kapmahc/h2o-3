@@ -59,6 +59,8 @@ gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
 gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'font-awesome-rails'
+
 gem 'simple_form'
 gem 'country_select'
 

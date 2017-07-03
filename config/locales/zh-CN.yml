@@ -1,0 +1,5 @@
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        name: 姓名

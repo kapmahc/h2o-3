@@ -51,14 +51,14 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # MY ADD
 
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n'
 
 gem 'jquery-rails'
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', github: 'twbs/bootstrap-rubygem'
 gem 'font-awesome-rails'
 
 gem 'simple_form'
@@ -71,3 +71,6 @@ gem 'cancancan'
 gem 'rolify'
 
 gem 'sidekiq'
+
+gem 'meta-tags'
+gem 'rails-settings-cached'

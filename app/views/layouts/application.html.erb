@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="<%= locale %>">
 <head>
-  <%= display_meta_tags  site: Setting["#{locale}.site.title"],
-                         description: Setting["#{locale}.site.description"],
-                         keywords: Setting["#{locale}.site.keywords"],
-                         reverse: true %>
+  <%= display_meta_tags site: Setting["#{locale}.site.title"],
+                        description: Setting["#{locale}.site.description"],
+                        keywords: Setting["#{locale}.site.keywords"],
+                        reverse: true %>
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,6 +15,7 @@
 <div class="container">
   <%= render 'shared/flash' %>
   <%= yield %>
+  <%= render 'shared/footer' %>
 </div>
 </body>
 </html>

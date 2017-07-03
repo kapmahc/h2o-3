@@ -1,0 +1,18 @@
+<hr/>
+<footer>
+  <p class="float-right">
+    <%= t '.all-languages' %>:
+    <% %w(en zh-CN zh-TW).each do |l| %>
+        <%= link_to t(".#{l}"), root_path(locale: l), target: :_blank %>
+    <% end %>
+  </p>
+  <p>
+    &copy; <%= Setting["#{locale}.site.keywords"] %>
+    <% links = Setting["#{locale}.footer.links"] %>
+    <% if links %>
+        <% links.each do |l| %>
+            &middot; <%= link_to l['label'], l['href'], target: :_blank %>
+        <% end %>
+    <% end %>
+  </p>
+</footer>

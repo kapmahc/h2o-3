@@ -1,6 +1,17 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
-  hi: "Hello"
+  zh-CN:
+    footer:
+      links:
+        - {href: "/forum/topics/1", label: "隐私"}
+        - {href: "/forum/topics/1", label: "条款"}
+        - {href: "/forum/topics/1", label: "团队"}
+  en:
+    footer:
+      links:
+        - {href: "/forum/topics/1", label: "Privacy"}
+        - {href: "/forum/topics/1", label: "Terms"}
+        - {href: "/forum/topics/1", label: "Teams"}
 
 development:
   <<: *defaults

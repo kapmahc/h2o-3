@@ -55,6 +55,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # MY ADD
 
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+
 gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'simple_form'

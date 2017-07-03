@@ -54,4 +54,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # MY ADD
+
+gem 'jquery-rails'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap_form',  git: 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', branch: 'bootstrap-v4'
+
 gem 'devise'
+gem 'devise-i18n'
+gem 'omniauth-facebook'

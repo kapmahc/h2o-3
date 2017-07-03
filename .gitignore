@@ -23,3 +23,6 @@
 /.idea
 .*.swp
 .*.un~
+
+# Build
+/public/assets

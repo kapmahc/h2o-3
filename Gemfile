@@ -57,7 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'bootstrap_form',  git: 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', branch: 'bootstrap-v4'
+gem 'simple_form'
+gem 'country_select'
 
 gem 'devise'
 gem 'devise-i18n'

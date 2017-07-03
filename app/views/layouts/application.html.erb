@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>H2O</title>
-    <link rel="icon" type="image/png"   href="/favicon.png" />
-    <%= csrf_meta_tags %>
+<head>
+  <title>H2O</title>
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+</body>
 </html>

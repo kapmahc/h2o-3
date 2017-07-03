@@ -69,3 +69,5 @@ gem 'devise-i18n'
 gem 'omniauth-facebook'
 gem 'cancancan'
 gem 'rolify'
+
+gem 'sidekiq'

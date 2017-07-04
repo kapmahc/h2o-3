@@ -78,3 +78,4 @@ gem 'meta-tags'
 gem 'rails-settings-cached'
 
 gem 'kaminari'
+gem 'kaminari-i18n'

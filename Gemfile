@@ -79,3 +79,7 @@ gem 'rails-settings-cached'
 
 gem 'kaminari'
 gem 'kaminari-i18n'
+
+gem 'lograge'
+
+gem 'friendly_id'

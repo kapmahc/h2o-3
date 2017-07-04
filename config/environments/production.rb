@@ -91,4 +91,5 @@ Rails.application.configure do
 
   # my add
   config.action_mailer.default_url_options = { host: ENV['HOST'] }
+  config.lograge.enabled = true
 end

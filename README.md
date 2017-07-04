@@ -46,6 +46,16 @@ rbenv global 2.4.1
 gem install bundler
 ```
 
+* Install Minio
+```bash
+cd ~/bin
+wget https://dl.minio.io/server/minio/release/linux-amd64/minio
+wget https://dl.minio.io/client/mc/release/linux-amd64/mc
+chmod +x minio mc
+mkdir -p /var/www/s3
+minio server /var/www/s3 
+```
+
 ## Database
 
 * Create database

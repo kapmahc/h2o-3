@@ -9,6 +9,7 @@ set :repo_url, 'https://github.com/kapmahc/h2o.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
+set :deploy_to, -> {"/var/www/#{fetch :hostname}"}
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -39,3 +40,5 @@ set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
 set :nginx_use_ssl, false
+set :nginx_config_name, -> { fetch :hostname }
+set :nginx_server_name, -> { fetch :hostname }

@@ -32,7 +32,6 @@
 en:
   shared:
     search-form:
-      hint: Click here to input
       submit: Search
     footer:
       all-languages: This site in other languages

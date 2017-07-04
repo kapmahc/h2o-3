@@ -7,11 +7,11 @@
     <% end %>
   </p>
   <p>
-    &copy; <%= Setting["#{locale}.site.keywords"] %>
+    &copy; <%= Setting["#{locale}.site.copyright"] %>
     <% links = Setting["#{locale}.footer.links"] %>
     <% if links %>
         <% links.each do |l| %>
-            &middot; <%= link_to l['label'], l['href'], target: :_blank %>
+            &middot; <%= link_to l.fetch('label'), l.fetch('href'), target: :_blank %>
         <% end %>
     <% end %>
   </p>

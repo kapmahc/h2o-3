@@ -66,6 +66,7 @@ gem 'country_select'
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'devise_invitable'
 gem 'omniauth-facebook'
 gem 'cancancan'
 gem 'rolify'

@@ -83,3 +83,7 @@ gem 'kaminari-i18n'
 gem 'lograge'
 
 gem 'friendly_id'
+
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog'

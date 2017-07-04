@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170704010709) do
+ActiveRecord::Schema.define(version: 20170704061129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.string "url", limit: 255, null: false
+    t.string "content_type", limit: 255, null: false
+    t.integer "length", null: false
+    t.string "resource_type", limit: 255, null: false
+    t.integer "resource_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar", null: false
+    t.index ["content_type"], name: "index_attachments_on_content_type"
+    t.index ["resource_type"], name: "index_attachments_on_resource_type"
+    t.index ["title"], name: "index_attachments_on_title"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"

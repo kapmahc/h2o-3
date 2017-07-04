@@ -25,3 +25,9 @@ git clone https://github.com/kapmahc/h2o.git
 cd h2o
 cap production deploy
 ```
+
+## Notes
+```bash
+rails g controller Home index --no-helper --no-assets --no-test-framework
+rails g model User --no-test-framework
+```

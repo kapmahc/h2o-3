@@ -63,6 +63,7 @@ gem 'font-awesome-rails'
 
 gem 'simple_form'
 gem 'country_select'
+gem 'chartkick'
 
 gem 'devise'
 gem 'devise-i18n'
@@ -75,3 +76,5 @@ gem 'sidekiq'
 
 gem 'meta-tags'
 gem 'rails-settings-cached'
+
+gem 'kaminari'

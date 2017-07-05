@@ -1,2 +1,29 @@
-<h1>Forum::Articles#index</h1>
-<p>Find me in app/views/forum/articles/index.html.erb</p>
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t 'attributes.title'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+      <%= link_to t('buttons.new'), new_forum_article_path, class: 'btn btn-sm btn-link'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @articles.each do |it| %>
+      <tr>
+        <th scope="row"><%= time_ago_in_words it.updated_at %></th>
+        <td><%= link_to it.title, forum_article_path(it), target: :_blank %></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.edit'), edit_forum_article_path(it), class: 'btn btn-warning'%>
+            <%= link_to t('buttons.delete'), forum_article_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

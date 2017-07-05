@@ -1,4 +1,8 @@
 zh-CN:
+  activerecord:
+    attributes:
+      forum/article:
+        forum_tags: 标签
   forum:
     articles:
       new:

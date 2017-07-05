@@ -20,10 +20,9 @@ zh-CN:
     logo: 图标
     href: 地址
   activerecord:
-    user:
-      name: 姓名
-    leave_word:
-      body: 正文
+    attributes:
+      user:
+        name: 姓名
   home:
     dashboard:
       title: 控制面板

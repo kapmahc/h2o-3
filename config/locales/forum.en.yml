@@ -1,4 +1,8 @@
 en:
+  activerecord:
+    attributes:
+      forum/article:
+        forum_tags: Tags
   forum:
     articles:
       new:

@@ -1,0 +1,10 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @article do |f| %>
+    <%= f.input :title, autofocus: true%>
+    <%= f.association :forum_tags, as: :check_boxes, collection: Forum::Tag.all, value_method: :id, label_method: :name %>
+    <%= f.input :format, as: :hidden%>
+    <%= f.input :body, as: :text, input_html: {rows: 6}, hint: t('hints.formats.markdown') %>
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

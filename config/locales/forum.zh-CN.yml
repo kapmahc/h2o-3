@@ -1,0 +1,25 @@
+zh-CN:
+  forum:
+    articles:
+      new:
+        title: New article
+      index:
+        title: My articles
+      hot:
+        title: Hot articles
+      latest:
+        title: Latest articles
+    tags:
+      index:
+        title: Tags
+      hot:
+        title: Hot tags
+      articles:
+        title: Articles by tag %{name}
+    comments:
+      index:
+        title: My comments
+      hot:
+        title: Hot comments
+      latest:
+        title: Latest comments

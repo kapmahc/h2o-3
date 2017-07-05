@@ -2,21 +2,29 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
-  post '/votes' => 'votes#index'
 
   # forum
   namespace :forum do
-    resources :tags
+    resources :tags do
+      collection do
+        get 'hot'
+      end
+      member do
+        get 'articles'
+      end
+    end
 
     resources :articles do
       collection do
-        get 'my'
+        get 'hot'
+        get 'latest'
       end
     end
 
     resources :comments, except: [:show] do
       collection do
-        get 'my'
+        get 'hot'
+        get 'latest'
       end
     end
 
@@ -36,12 +44,14 @@ Rails.application.routes.draw do
     resources :cards, except: [:show]
   end
 
+  post '/votes' => 'votes#index'
+
   # leave words
   resources :leave_words, except: [:edit, :update, :show]
 
   # seo
-  get '/robots' => 'home#robots', constraints: { format: 'txt' }
-  get '/rss' => 'home#rss', constraints: { format: 'atom' }
+  get '/robots' => 'home#robots', constraints: {format: 'txt'}
+  get '/rss' => 'home#rss', constraints: {format: 'atom'}
 
   # home
   post '/search' => 'home#search'
@@ -50,7 +60,7 @@ Rails.application.routes.draw do
   # third
   devise_for :users
 
-  authenticate :user, lambda { |u| u.is_admin? } do
+  authenticate :user, lambda {|u| u.is_admin?} do
     mount Sidekiq::Web => '/jobs'
   end
 

@@ -37,6 +37,9 @@ zh-CN:
         footer: 底部导航
       languages:
         title: 语言列表
+    cards:
+      index:
+        title: 卡片管理
   leave_words:
     index:
       title: 留言板

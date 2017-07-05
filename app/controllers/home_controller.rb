@@ -23,6 +23,7 @@ class HomeController < ApplicationController
               {label: 'admin.site.info.title', href: admin_site_info_path},
               {label: 'admin.site.nav.header', href: admin_site_nav_path(loc: :header, type: :dropdown)},
               {label: 'admin.site.nav.footer', href: admin_site_nav_path(loc: :footer, type: :link)},
+              {label: 'admin.cards.index.title', href: admin_cards_path},
               {label: 'admin.site.languages.title', href: admin_site_languages_path},
               {label: 'leave_words.index.title', href: leave_words_path},
           ]

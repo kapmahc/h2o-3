@@ -2,6 +2,27 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  post '/votes' => 'votes#index'
+
+  # forum
+  namespace :forum do
+    resources :tags
+
+    resources :articles do
+      collection do
+        get 'my'
+      end
+    end
+
+    resources :comments, except: [:show] do
+      collection do
+        get 'my'
+      end
+    end
+
+  end
+
+  # admin
   namespace :admin do
     %w(info languages nav).each do |act|
       get "site/#{act}"
@@ -9,8 +30,11 @@ Rails.application.routes.draw do
     end
 
     get 'site/status'
+
+    resources :cards
   end
 
+  # leave words
   resources :leave_words, except: [:edit, :update, :show]
 
   # seo

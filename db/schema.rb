@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20170705175940) do
     t.index ["title"], name: "index_attachments_on_title"
   end
 
+  create_table "cards", force: :cascade do |t|
+    t.string "loc", limit: 16, null: false
+    t.string "title", limit: 255, null: false
+    t.string "summary", limit: 800, null: false
+    t.string "href", limit: 255, null: false
+    t.string "logo", limit: 255, null: false
+    t.string "action", limit: 32, null: false
+    t.integer "sort_order", limit: 2, default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loc"], name: "index_cards_on_loc"
+  end
+
   create_table "forum_articles", force: :cascade do |t|
     t.string "title", limit: 255, null: false
     t.text "body", null: false
@@ -139,6 +152,15 @@ ActiveRecord::Schema.define(version: 20170705175940) do
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "resource_type", limit: 255, null: false
+    t.integer "resource_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_type", "resource_id"], name: "index_votes_on_resource_type_and_resource_id", unique: true
+    t.index ["resource_type"], name: "index_votes_on_resource_type"
   end
 
 end

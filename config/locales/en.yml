@@ -60,6 +60,9 @@ en:
         footer: Footer Nav
       languages:
         title: Languages
+    cards:
+      index:
+        title: Cards
   leave_words:
     index:
       title: Leave words

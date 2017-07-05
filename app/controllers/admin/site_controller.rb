@@ -1,7 +1,7 @@
 class Admin::SiteController < ApplicationController
+  before_action :require_admin!
 
   def info
-    authorize :dashboard, :admin?
     if request.post?
       params.permit(:title, :sub_title, :keywords, :description, :copyright).each {|k, v| Setting["#{locale}.site.#{k}"] = v}
       flash[:notice] = t 'messages.success'
@@ -10,11 +10,9 @@ class Admin::SiteController < ApplicationController
   end
 
   def status
-    authorize :dashboard, :admin?
   end
 
   def languages
-    authorize :dashboard, :admin?
     if request.post?
       Setting.languages = JSON.parse params.fetch(:languages)
       flash[:notice] = t 'messages.success'
@@ -22,7 +20,6 @@ class Admin::SiteController < ApplicationController
   end
 
   def nav
-    authorize :dashboard, :admin?
     if request.post?
       typ = params.fetch :typ
       loc = params.fetch :loc
@@ -39,6 +36,11 @@ class Admin::SiteController < ApplicationController
       flash[:notice] = t 'messages.success'
       redirect_to admin_site_nav_path(loc: loc, type: typ)
     end
+  end
+
+  private
+  def require_admin!
+    authorize :dashboard, :admin?
   end
 
 end

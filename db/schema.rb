@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170704181043) do
+ActiveRecord::Schema.define(version: 20170705175940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,44 @@ ActiveRecord::Schema.define(version: 20170704181043) do
     t.index ["content_type"], name: "index_attachments_on_content_type"
     t.index ["resource_type"], name: "index_attachments_on_resource_type"
     t.index ["title"], name: "index_attachments_on_title"
+  end
+
+  create_table "forum_articles", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "body", null: false
+    t.string "format", limit: 12, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_forum_articles_on_format"
+    t.index ["title"], name: "index_forum_articles_on_title"
+    t.index ["user_id"], name: "index_forum_articles_on_user_id"
+  end
+
+  create_table "forum_articles_tags", id: false, force: :cascade do |t|
+    t.bigint "forum_article_id", null: false
+    t.bigint "forum_tag_id", null: false
+    t.index ["forum_article_id", "forum_tag_id"], name: "index_forum_articles_tags_on_forum_article_id_and_forum_tag_id", unique: true
+    t.index ["forum_article_id"], name: "index_forum_articles_tags_on_forum_article_id"
+    t.index ["forum_tag_id"], name: "index_forum_articles_tags_on_forum_tag_id"
+  end
+
+  create_table "forum_comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.string "format", limit: 12, null: false
+    t.bigint "forum_article_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_forum_comments_on_format"
+    t.index ["forum_article_id"], name: "index_forum_comments_on_forum_article_id"
+    t.index ["user_id"], name: "index_forum_comments_on_user_id"
+  end
+
+  create_table "forum_tags", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leave_words", force: :cascade do |t|

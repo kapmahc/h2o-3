@@ -10,9 +10,14 @@ Rails.application.routes.draw do
 
   resources :leave_words, except: [:edit, :update, :show]
 
-  post '/search' => 'home#search' # todo
+  # seo
+  get '/robots' => 'home#robots', constraints: { format: 'txt' }
+
+  # home
+  post '/search' => 'home#search'
   get '/dashboard' => 'home#dashboard'
 
+  # third
   devise_for :users
 
   authenticate :user, lambda { |u| u.is_admin? } do
@@ -20,5 +25,5 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'home#index' # todo
+  root to: 'home#index'
 end

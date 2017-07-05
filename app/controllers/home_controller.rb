@@ -28,6 +28,9 @@ class HomeController < ApplicationController
 
   end
 
+  def robots
+  end
+
   def search
 
   end

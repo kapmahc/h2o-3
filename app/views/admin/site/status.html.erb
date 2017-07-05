@@ -1,2 +1,55 @@
-<h1>Admin::Site#index</h1>
-<p>Find me in app/views/admin/site/index.html.erb</p>
+<% title t('.title') %>
+<div class="card-columns">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">OS</h4>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-action">
+        <%= "#{Etc.getlogin}@#{Socket.gethostname}"%>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <%= Etc.uname.map{|_,v|v}.join(', ')%>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <%= `uptime`%>
+      </li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Ruby</h4>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-action">
+        PID: <%= Process.pid%>
+      </li>
+      <li class="list-group-item list-group-item-action"><%= `which ruby`%></li>
+      <li class="list-group-item list-group-item-action"><%= RUBY_DESCRIPTION%></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Rails</h4>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-action">env: <%= Rails.env%></li>
+      <li class="list-group-item list-group-item-action">version: <%= Rails.version%></li>
+      <li class="list-group-item list-group-item-action">root: <%= Rails.root%></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Database</h4>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <% Rails.configuration.database_configuration[Rails.env].select{|k,_|k!='password'}.each do |k, v|%>
+        <li class="list-group-item list-group-item-action"><%= "#{k}: #{v}"%></li>
+      <%end%>
+    </ul>
+  </div>
+</div>

@@ -28,6 +28,7 @@ zh-CN:
           copyright: 版权信息
       status:
         title: 系统状态
+        os: 操作系统
   leave_words:
     index:
       title: 留言板

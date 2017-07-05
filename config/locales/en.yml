@@ -51,6 +51,7 @@ en:
           copyright: Copyright
       status:
         title: Status
+        os: OS
   leave_words:
     index:
       title: Leave words

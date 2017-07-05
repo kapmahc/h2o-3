@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705175940) do
+ActiveRecord::Schema.define(version: 20170705232650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,43 @@ ActiveRecord::Schema.define(version: 20170705175940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
+  end
+
+  create_table "survery_fields", force: :cascade do |t|
+    t.string "name", limit: 16, null: false
+    t.string "label", limit: 255, null: false
+    t.string "value", limit: 255
+    t.string "help", limit: 800
+    t.text "options"
+    t.bigint "survery_form_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_survery_fields_on_name"
+    t.index ["survery_form_id"], name: "index_survery_fields_on_survery_form_id"
+  end
+
+  create_table "survery_forms", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "body", null: false
+    t.string "format", limit: 12, null: false
+    t.text "fields", null: false
+    t.datetime "start_up", null: false
+    t.datetime "shut_down", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_survery_forms_on_format"
+    t.index ["title"], name: "index_survery_forms_on_title"
+  end
+
+  create_table "survery_records", force: :cascade do |t|
+    t.inet "client_ip", null: false
+    t.text "value", null: false
+    t.bigint "survery_form_id", null: false
+    t.bigint "survery_field_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survery_field_id"], name: "index_survery_records_on_survery_field_id"
+    t.index ["survery_form_id"], name: "index_survery_records_on_survery_form_id"
   end
 
   create_table "users", force: :cascade do |t|

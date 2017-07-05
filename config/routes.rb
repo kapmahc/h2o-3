@@ -2,6 +2,11 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  # survery
+  namespace :survery do
+    resources :forms
+    resources :records
+  end
 
   # forum
   namespace :forum do

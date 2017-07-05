@@ -38,4 +38,8 @@ class Admin::SiteController < ApplicationController
     end
   end
 
+  def donate
+
+  end
+
 end

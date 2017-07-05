@@ -45,6 +45,9 @@ class HomeController < ApplicationController
 
   def robots
   end
+  
+  def donate
+  end
 
   def search
 

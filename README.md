@@ -75,6 +75,7 @@ vi config/deploy/production.rb
 bundle exec cap production puma:config
 bundle exec cap production puma:nginx_config
 bundle exec cap production deploy
+bundle exec cap production sitemap:refresh 
 ```
 
 ## Notes

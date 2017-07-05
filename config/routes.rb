@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # seo
   get '/robots' => 'home#robots', constraints: { format: 'txt' }
+  get '/rss' => 'home#rss', constraints: { format: 'atom' }
 
   # home
   post '/search' => 'home#search'

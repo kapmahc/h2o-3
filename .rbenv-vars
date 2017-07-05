@@ -1,6 +1,7 @@
 REDIS_URL=redis://localhost:6379/8
 
 HOST=www.change-me.com
+SCHEME=http
 
 MANAGER=admin@change-me.com
 MAILER_SENDER=no-reply@change-me.com

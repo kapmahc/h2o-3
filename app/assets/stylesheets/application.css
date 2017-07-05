@@ -18,3 +18,8 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+
+img.vote {
+    width: 20px;
+    height: auto;
+}

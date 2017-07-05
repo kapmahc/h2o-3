@@ -7,6 +7,7 @@
   <footer class="blockquote-footer"><%= @article.user.name%> <cite title="Source Title"><%= time_ago_in_words @article.updated_at %></cite></footer>
 </blockquote>
 <p><%= md2ht @article.body%></p>
+<%= render 'shared/vote', rty:@article.class, rid:@article.id%>
 <h4>
   <%= t '.comments'%>
   <%= link_to t('buttons.new'), new_forum_comment_path(forum_article_id: @article.id), class: 'btn btn-sm btn-link'%>

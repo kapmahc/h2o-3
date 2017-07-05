@@ -1,0 +1,5 @@
+<p>
+  <% {up:1, down:-1}.each do |k, v|%>
+      <%= link_to image_tag(asset_path("#{k}.png"), class: 'vote'), votes_path(rty: rty, rid: rid, mark: v), method: :post %>
+  <%end%>
+</p>

@@ -38,13 +38,4 @@ class Admin::SiteController < ApplicationController
     end
   end
 
-  def users
-
-  end
-
-  private
-  def require_admin!
-    authorize :dashboard, :admin?
-  end
-
 end

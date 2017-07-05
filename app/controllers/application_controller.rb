@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys:  [:name, :email, :password, :password_confirmation]
     devise_parameter_sanitizer.permit :account_update, keys:  [:name,  :password, :password_confirmation]
   end
+
+
+  def require_admin!
+    authorize :dashboard, :admin?
+  end
 end

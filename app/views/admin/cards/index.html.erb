@@ -1,2 +1,33 @@
-<h1>Admin::Cards#index</h1>
-<p>Find me in app/views/admin/cards/index.html.erb</p>
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t 'attributes.loc'%></th>
+    <th><%= t 'attributes.sort_order'%></th>
+    <th><%= t 'attributes.title'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+      <%= link_to t('buttons.new'), new_admin_card_path, class: 'btn btn-sm btn-link'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% Card.all.each do |it| %>
+      <tr>
+        <td><%= time_ago_in_words it.updated_at %></td>
+        <td><%= it.loc %></td>
+        <td><%= it.sort_order %></td>
+        <td><%= link_to it.title, it.href, target: :_blank %></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.edit'), edit_admin_card_path(it), class: 'btn btn-warning'%>
+            <%= link_to t('buttons.delete'), admin_card_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

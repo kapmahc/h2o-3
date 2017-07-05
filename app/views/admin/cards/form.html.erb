@@ -1,0 +1,15 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @card, url: @card.id ? admin_card_path(@card) :admin_cards_path do |f| %>
+    <%= f.input :format, as: :hidden%>
+    <%= f.input :loc%>
+    <%= f.input :sort_order, collection: -10..10 %>
+    <%= f.input :href%>
+    <%= f.input :title, autofocus: true %>
+    <%= f.input :logo%>
+    <%= f.input :summary, as: :text, input_html: {rows: 6}, hint: t('hints.formats.markdown') %>
+    <%= f.input :action %>
+
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

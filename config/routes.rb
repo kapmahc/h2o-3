@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
     get 'site/status'
 
-    get 'site/users'
+    resources :users, only: [:index]
 
     resources :cards, except: [:show]
   end

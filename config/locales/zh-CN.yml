@@ -9,12 +9,21 @@ zh-CN:
     are_you_sure: 你确定么？
   attributes:
     created_at: 创建时间
+    updated_at: 修改时间
     body: 正文
+    title: 标题
+    loc: 位置
+    sort_order: 排序
+    summary: 摘要
+    logo: 图标
+    href: 地址
   activerecord:
-      user:
-        name: 姓名
-      leave_word:
-        body: 正文
+    user:
+      name: 姓名
+    leave_word:
+      body: 正文
+    card:
+      action: 动作
   home:
     dashboard:
       title: 控制面板
@@ -37,7 +46,8 @@ zh-CN:
         footer: 底部导航
       languages:
         title: 语言列表
-      users:
+    users:
+      index:
         title: 用户列表
         user: 用户
         current_sign_in: 当前登录
@@ -45,6 +55,8 @@ zh-CN:
     cards:
       index:
         title: 卡片管理
+      form:
+        title: 卡片
   leave_words:
     index:
       title: 留言板

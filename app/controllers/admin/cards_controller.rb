@@ -6,7 +6,8 @@ class Admin::CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new
+    @card = Card.new format: 'markdown', sort_order: 0
+    render 'form'
   end
 
   def create
@@ -21,6 +22,7 @@ class Admin::CardsController < ApplicationController
 
   def edit
     @card = Card.find(params[:id])
+    render 'form'
   end
 
   def update
@@ -42,9 +44,6 @@ class Admin::CardsController < ApplicationController
 
 
   private
-  def require_admin!
-    authorize :dashboard, :admin?
-  end
   def card_params
     params.require(:card).permit(:loc, :title, :logo, :summary, :format, :href, :action, :sort_order)
   end

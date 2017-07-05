@@ -60,7 +60,8 @@ en:
         footer: Footer Nav
       languages:
         title: Languages
-      users:
+    users:
+      index:
         title: Users
         user: User
         current_sign_in: Current sign in

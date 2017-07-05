@@ -5,11 +5,13 @@ class Forum::TagsController < ApplicationController
 
 
   def new
+    authorize Forum::Tag
     @tag = Forum::Tag.new
     render 'form'
   end
 
   def create
+    authorize Forum::Tag
     @tag = Forum::Tag.new tag_params
     if @tag.save
       redirect_to forum_tags_path
@@ -19,12 +21,12 @@ class Forum::TagsController < ApplicationController
   end
 
   def edit
-    @tag = Forum::Tag.find(params[:id])
+    @tag = authorize Forum::Tag.find(params[:id])
     render 'form'
   end
 
   def update
-    @tag = Forum::Tag.find(params[:id])
+    @tag = authorize Forum::Tag.find(params[:id])
 
     if @tag.update(tag_params)
       redirect_to forum_tags_path
@@ -34,7 +36,7 @@ class Forum::TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Forum::Tag.find(params[:id])
+    @tag = authorize Forum::Tag.find(params[:id])
     @tag.destroy
 
     redirect_to forum_tags_path

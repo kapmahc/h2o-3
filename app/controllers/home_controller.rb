@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    @cards = Card.where(loc: 'home').order(sort_order: :desc)
   end
 
   def dashboard

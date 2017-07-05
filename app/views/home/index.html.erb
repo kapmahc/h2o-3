@@ -1,1 +1,14 @@
-<h1>home</h1>
+<div class="card-columns">
+  <% @cards.each do |it| %>
+      <div class="card">
+        <% unless it.logo.empty? %>
+          <%= image_tag it.logo, class:'card-img-top' %>
+        <%end%>
+        <div class="card-block">
+          <h4 class="card-title"><%= it.title%></h4>
+          <p><%= it.summary%></p>
+          <%= link_to it.action, it.href, class: 'btn btn-primary', target: :_blank%>
+        </div>
+      </div>
+  <% end %>
+</div>

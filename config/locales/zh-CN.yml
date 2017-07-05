@@ -37,6 +37,11 @@ zh-CN:
         footer: 底部导航
       languages:
         title: 语言列表
+      users:
+        title: 用户列表
+        user: 用户
+        current_sign_in: 当前登录
+        last_sign_in: 上次登录
     cards:
       index:
         title: 卡片管理

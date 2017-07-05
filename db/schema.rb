@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(version: 20170705175940) do
     t.string "loc", limit: 16, null: false
     t.string "title", limit: 255, null: false
     t.string "summary", limit: 800, null: false
+    t.string "format", limit: 12, null: false
     t.string "href", limit: 255, null: false
     t.string "logo", limit: 255, null: false
     t.string "action", limit: 32, null: false
     t.integer "sort_order", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_cards_on_format"
     t.index ["loc"], name: "index_cards_on_loc"
   end
 

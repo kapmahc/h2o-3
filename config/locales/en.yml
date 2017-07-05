@@ -60,6 +60,11 @@ en:
         footer: Footer Nav
       languages:
         title: Languages
+      users:
+        title: Users
+        user: User
+        current_sign_in: Current sign in
+        last_sign_in: Last sign in
     cards:
       index:
         title: Cards

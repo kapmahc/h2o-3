@@ -1,7 +1,7 @@
 class LeaveWordsController < ApplicationController
+  before_action :require_admin!, only: [:index, :destroy]
 
   def index
-    authorize :dashboard, :admin?
     @leave_words = LeaveWord.all
   end
 
@@ -11,7 +11,6 @@ class LeaveWordsController < ApplicationController
   end
 
   def create
-    authorize :dashboard, :admin?
     @leave_word = LeaveWord.new params.require(:leave_word).permit(:body)
 
     if @leave_word.save
@@ -23,10 +22,14 @@ class LeaveWordsController < ApplicationController
   end
 
   def destroy
-    authorize :dashboard, :admin?
     @leave_word = LeaveWord.find params.fetch(:id)
     @leave_word.destroy
     redirect_to leave_words_path
   end
 
+
+  private
+  def require_admin!
+    authorize :dashboard, :admin?
+  end
 end

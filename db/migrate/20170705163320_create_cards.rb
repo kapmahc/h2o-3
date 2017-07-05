@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration[5.1]
       t.string :loc, index:true, null:false, limit:16
       t.string :title, null:false, limit:255
       t.string :summary, null:false, limit:800
+      t.string :format, index:true, null:false, limit:12
       t.string :href, null:false, limit:255
       t.string :logo, null:false, limit:255
       t.string :action, null:false, limit:32

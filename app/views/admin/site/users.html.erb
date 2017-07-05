@@ -1,0 +1,21 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t '.user'%></th>
+    <th><%= t '.current_sign_in'%></th>
+    <th><%= t '.last_sign_in'%></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% User.all.each do |it| %>
+      <tr>
+        <th scope="row"><%= it.name%>&lt;<%= it.email%>&gt;(<%= it.sign_in_count%>)</th>
+        <td><%= time_ago_in_words it.current_sign_in_at %> <%= it.current_sign_in_ip%></td>
+        <td><%= time_ago_in_words it.last_sign_in_at %> <%= it.last_sign_in_ip%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

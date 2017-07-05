@@ -1,2 +1,31 @@
-<h1>Forum::Comments#index</h1>
-<p>Find me in app/views/forum/comments/index.html.erb</p>
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t 'attributes.body'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @comments.each do |it| %>
+      <tr>
+        <th scope="row"><%= time_ago_in_words it.updated_at %></th>
+        <td>
+          <pre><%= it.body%></pre>
+        </td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.show'), forum_article_path(it.forum_article_id), class: 'btn btn-info'%>
+            <%= link_to t('buttons.edit'), edit_forum_comment_path(it), class: 'btn btn-warning'%>
+            <%= link_to t('buttons.delete'), forum_comment_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

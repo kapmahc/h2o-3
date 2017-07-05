@@ -1,0 +1,13 @@
+<h2><%= title @article.title%></h2>
+<hr/>
+<p><%= @article.body%></p>
+<h4>
+  <%= t '.comments'%>
+  <%= link_to t('buttons.new'), new_forum_comment_path(forum_article_id: @article.id), class: 'btn btn-sm btn-link'%>
+</h4>
+<%@article.forum_comments.order(updated_at: :desc).each do |it|%>
+<blockquote class="blockquote">
+  <p class="mb-0"><%= it.body%></p>
+  <footer class="blockquote-footer"><%= it.user.name%> <cite title="Source Title"><%= time_ago_in_words it.updated_at %></cite></footer>
+</blockquote>
+<%end%>

@@ -2,10 +2,14 @@ class Forum::ArticlesController < ApplicationController
   def index
     authorize Forum::Article
     if current_user.is_admin?
-      @articles = Forum::Article.all
+      @articles = Forum::Article.all.order(updated_at: :desc)
     else
-      @articles = Forum::Article.where(user_id: current_user.id)
+      @articles = Forum::Article.where(user_id: current_user.id).order(updated_at: :desc)
     end
+  end
+
+  def show
+    @article = Forum::Article.find(params[:id])
   end
 
 

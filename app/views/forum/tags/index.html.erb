@@ -13,7 +13,7 @@
   </tr>
   </thead>
   <tbody>
-  <% Forum::Tag.all.each do |it| %>
+  <% Forum::Tag.all.order(updated_at: :desc).each do |it| %>
       <tr>
         <th scope="row"><%= time_ago_in_words it.updated_at %></th>
         <td><%= it.name %></td>

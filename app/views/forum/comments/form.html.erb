@@ -1,0 +1,9 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :forum_article_id, as: :hidden%>
+  <%= f.input :format, as: :hidden%>
+  <%= f.input :body, as: :text, input_html: {rows: 6}, hint: t('hints.formats.markdown') %>
+  <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

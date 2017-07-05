@@ -9,9 +9,6 @@ Rails.application.routes.draw do
       collection do
         get 'hot'
       end
-      member do
-        get 'articles'
-      end
     end
 
     resources :articles do

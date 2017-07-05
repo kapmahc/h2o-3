@@ -1,2 +1,3 @@
 class Forum::Tag < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
 end

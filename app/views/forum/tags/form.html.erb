@@ -1,0 +1,7 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @tag do |f| %>
+    <%= f.input :name%>
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

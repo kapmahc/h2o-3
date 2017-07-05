@@ -9,13 +9,17 @@ en:
         title: Hot articles
       latest:
         title: Latest articles
+      form:
+        title: Article
     tags:
       index:
         title: Tags
       hot:
         title: Hot tags
-      articles:
-        title: Articles by tag %{name}
+      show:
+        title: Tag-%{name}
+      form:
+        title: Tag
     comments:
       index:
         title: My comments
@@ -23,3 +27,5 @@ en:
         title: Hot comments
       latest:
         title: Latest comments
+      form:
+        title: Comment

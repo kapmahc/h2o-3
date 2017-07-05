@@ -2,24 +2,30 @@ zh-CN:
   forum:
     articles:
       new:
-        title: New article
+        title: 发表文章
       index:
-        title: My articles
+        title: 我的文章
       hot:
-        title: Hot articles
+        title: 热门文章
       latest:
-        title: Latest articles
+        title: 最新文章
+      form:
+        title: 文章
     tags:
       index:
-        title: Tags
+        title: 标签列表
       hot:
-        title: Hot tags
-      articles:
-        title: Articles by tag %{name}
+        title: 热门标签
+      show:
+        title: 标签-%{name}
+      form:
+        title: 标签
     comments:
       index:
-        title: My comments
+        title: 我的评论
       hot:
-        title: Hot comments
+        title: 热门评论
       latest:
-        title: Latest comments
+        title: 最新评论
+      form:
+        title: 评论

@@ -8,6 +8,8 @@ zh-CN:
     failed: 操作失败
     are_you_sure: 你确定么？
   attributes:
+    name: 名称
+    action: 动作
     created_at: 创建时间
     updated_at: 修改时间
     body: 正文
@@ -22,8 +24,6 @@ zh-CN:
       name: 姓名
     leave_word:
       body: 正文
-    card:
-      action: 动作
   home:
     dashboard:
       title: 控制面板

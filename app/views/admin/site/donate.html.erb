@@ -1,0 +1,17 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= form_tag do %>
+
+    <div class="form-group">
+      <%= label_tag :description, t('.form.description') %>
+      <%= text_area_tag :description, Setting['donate.description'], class: 'form-control', rows:8 %>
+      <small class="form-text text-muted"><%= t('hints.formats.markdown')%></small>
+    </div>
+    <div class="form-group">
+      <%= label_tag :paypal, t('.form.paypal') %>
+      <%= text_area_tag :paypal, Setting['donate.paypal'], class: 'form-control', rows:8 %>
+      <small class="form-text text-muted"><%= t('hints.formats.html')%></small>
+    </div>
+
+    <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<% end %>

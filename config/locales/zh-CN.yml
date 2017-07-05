@@ -3,6 +3,7 @@ zh-CN:
     formats:
       json: JSON格式
       markdown: MARKDOWN格式
+      html: HTML 格式
   messages:
     success: 操作成功
     failed: 操作失败
@@ -29,6 +30,8 @@ zh-CN:
       self: 账户信息
       site: 站点设置
       forum: 社区
+    donate:
+      title: 捐赠
   admin:
     site:
       info:
@@ -46,6 +49,11 @@ zh-CN:
         footer: 底部导航
       languages:
         title: 语言列表
+      donate:
+        title: 捐赠页面
+        form:
+          description: 说明信息
+          paypal: Paypal表单
     users:
       index:
         title: 用户列表

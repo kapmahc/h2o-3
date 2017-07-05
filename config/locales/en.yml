@@ -32,8 +32,9 @@
 en:
   hints:
     formats:
-      json: format by JSON
-      markdown: format by MARKDOWN
+      json: Format by JSON
+      markdown: Format by MARKDOWN
+      html: Format by HTML
   messages:
     success: Success
     failed: Failed
@@ -47,6 +48,8 @@ en:
       title: Dashboard
       self: Account
       site: Site
+    donate:
+      title: Donate
   admin:
     site:
       info:
@@ -64,6 +67,11 @@ en:
         footer: Footer Nav
       languages:
         title: Languages
+      donate:
+        title: Donate
+        form:
+          description: Description
+          paypal: Paypal form
     users:
       index:
         title: Users

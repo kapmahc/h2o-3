@@ -39,7 +39,10 @@ class Admin::SiteController < ApplicationController
   end
 
   def donate
-
+    if request.post?
+      params.permit(:description, :paypal).each {|k, v| Setting["donate.#{k}"] = v}
+      flash[:notice] = t 'messages.success'
+    end
   end
 
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # survery
   namespace :survery do
     resources :forms
+    resources :fields
     resources :records
   end
 
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
 
   # admin
   namespace :admin do
-    %w(info languages nav).each do |act|
+    %w(info languages nav donate).each do |act|
       get "site/#{act}"
       post "site/#{act}"
     end
@@ -55,7 +56,8 @@ Rails.application.routes.draw do
 
   # home
   post '/search' => 'home#search'
-  get '/dashboard' => 'home#dashboard'
+  %w(dashboard donate).each {|act|get "/#{act}" => "home##{act}"}
+
 
   # third
   devise_for :users

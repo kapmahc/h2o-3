@@ -6,7 +6,7 @@
         <%end%>
         <div class="card-block">
           <h4 class="card-title"><%= it.title%></h4>
-          <p><%= it.summary%></p>
+          <p><%= md2ht it.summary%></p>
           <%= link_to it.action, it.href, class: 'btn btn-primary', target: :_blank%>
         </div>
       </div>

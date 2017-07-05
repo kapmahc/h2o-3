@@ -20,7 +20,7 @@
         </td>
         <td>
           <div class="btn-group btn-group-sm">
-            <%= link_to t('buttons.show'), forum_article_path(it.forum_article_id), class: 'btn btn-info'%>
+            <%= link_to t('buttons.show'), forum_article_path(it.forum_article_id), class: 'btn btn-info', target: :_blank%>
             <%= link_to t('buttons.edit'), edit_forum_comment_path(it), class: 'btn btn-warning'%>
             <%= link_to t('buttons.delete'), forum_comment_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
           </div>

@@ -90,6 +90,8 @@ gem 'fog'
 
 gem 'sitemap_generator'
 
+gem 'kramdown'
+
 group :development do
   gem 'capistrano', '~> 3.8'
   gem 'capistrano-rbenv', '~> 2.0'

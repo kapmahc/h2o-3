@@ -6,6 +6,7 @@
     <% links = user_signed_in? ?
                    [
                        {label: '.profile', href: edit_user_registration_path},
+                       {label: 'home.dashboard.title', href: dashboard_path},
                        {label: 'devise.invitations.new.header', href: new_user_invitation_path},
                    ] :
                    [

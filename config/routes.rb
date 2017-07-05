@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :leave_words, except: [:edit, :update, :show]
 
   post '/search' => 'home#search' # todo
+  get '/dashboard' => 'home#dashboard'
 
   devise_for :users
 

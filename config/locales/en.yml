@@ -34,6 +34,11 @@ en:
     success: Success
     failed: Failed
     are-you-sure: Are you sure?
+  home:
+    dashboard:
+      title: Dashboard
+      self: Account
+      site: Site
   leave_words:
     index:
       title: Leave words

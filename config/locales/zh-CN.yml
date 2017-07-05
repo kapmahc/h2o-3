@@ -11,6 +11,11 @@ zh-CN:
         name: 姓名
       leave_word:
         body: 正文
+  home:
+    dashboard:
+      title: 控制面板
+      self: 账户信息
+      site: 站点设置
   leave_words:
     index:
       title: 留言板

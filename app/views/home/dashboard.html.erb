@@ -1,0 +1,16 @@
+<h2><%= title t('.title') %></h2>
+<hr/>
+<div class="card-columns">
+  <% @cards.each do |it| %>
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title"><%= t(it.fetch :label)%></h4>
+        </div>
+        <div class="list-group list-group-flush">
+          <% it.fetch(:links).each do |lk| %>
+            <%= link_to t(lk.fetch :label), lk.fetch(:href), class:'list-group-item list-group-item-action' %>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

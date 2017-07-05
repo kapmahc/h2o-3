@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
 
-      <% links = Setting["#{locale}.header.links"] %>
+      <% links = Setting["#{locale}.nav.header"] %>
       <% if links %>
           <% links.each_with_index do |d, i| %>
               <% id = "header-dropdown-#{i+1}" %>

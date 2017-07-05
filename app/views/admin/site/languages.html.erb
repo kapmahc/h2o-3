@@ -1,0 +1,9 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= form_tag do %>
+  <div class="form-group">
+    <%= text_area_tag :languages, JSON.pretty_generate(Setting.languages), class: 'form-control', rows: 10 %>
+    <small class="form-text text-muted"><%= t('hints.formats.json')%></small>
+  </div>
+  <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<% end %>

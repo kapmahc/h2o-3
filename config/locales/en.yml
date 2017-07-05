@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  hints:
+    formats:
+      json: format by JSON
+      markdown: format by MARKDOWN
   messages:
     success: Success
     failed: Failed
@@ -51,7 +55,11 @@ en:
           copyright: Copyright
       status:
         title: Status
-        os: OS
+      nav:
+        header: Header Nav
+        footer: Footer Nav
+      languages:
+        title: Languages
   leave_words:
     index:
       title: Leave words

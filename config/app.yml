@@ -5,22 +5,20 @@ defaults: &defaults
     zh-CN: 简体中文
     zh-TW: 繁體中文
   zh-CN:
-    header:
-      links:
+    nav:
+      header:
         - {label: '下拉1', items: [{href: "/forum/topics/1", label: "菜单11"}, {href: "/forum/topics/1", label: "菜单12"}]}
         - {label: '下拉2', items: [{href: "/forum/topics/1", label: "菜单22"}, {href: "/forum/topics/1", label: "菜单22"}]}
-    footer:
-      links:
+      footer:
         - {href: "/forum/topics/1", label: "隐私"}
         - {href: "/forum/topics/1", label: "条款"}
         - {href: "/forum/topics/1", label: "团队"}
   en:
-    header:
-      links:
+    nav:
+      header:
         - {label: 'Dropdown 1', items: [{href: "/forum/topics/1", label: "Menu 11"}, {href: "/forum/topics/1", label: "Menu 12"}]}
         - {label: 'Dropdown 2', items: [{href: "/forum/topics/1", label: "Menu 22"}, {href: "/forum/topics/1", label: "Menu 22"}]}
-    footer:
-      links:
+      footer:
         - {href: "/forum/topics/1", label: "Privacy"}
         - {href: "/forum/topics/1", label: "Terms"}
         - {href: "/forum/topics/1", label: "Teams"}

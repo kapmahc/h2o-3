@@ -3,8 +3,11 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
   namespace :admin do
-    get 'site/info'
-    post 'site/info'
+    %w(info languages nav).each do |act|
+      get "site/#{act}"
+      post "site/#{act}"
+    end
+
     get 'site/status'
   end
 

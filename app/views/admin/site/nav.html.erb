@@ -1,0 +1,13 @@
+<% @loc = params.fetch :loc%>
+<% @type = params.fetch :type%>
+<h2><%= title t(".#{@loc}")%></h2>
+<hr/>
+<%= form_tag do %>
+    <%= hidden_field_tag :typ, @type %>
+    <%= hidden_field_tag :loc, @loc %>
+    <div class="form-group">
+      <%= text_area_tag :val, JSON.pretty_generate(Setting["#{locale}.nav.#{@loc}"] || []), class: 'form-control', rows: 12 %>
+      <small class="form-text text-muted"><%= t('hints.formats.json')%></small>
+    </div>
+    <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<% end %>

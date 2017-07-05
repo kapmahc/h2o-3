@@ -1,0 +1,11 @@
+zh-CN:
+  shared:
+    personal-bar:
+      welcome: 欢迎你，%{name}
+      profile: 个人信息
+      sign-in-or-up: 登录/注册
+      sign-out: 安全退出
+    search-form:
+      submit: 搜索
+    footer:
+      all-languages: 本站的其它语言版本

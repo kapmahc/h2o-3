@@ -1,0 +1,23 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.created_at'%></th>
+    <th><%= t 'attributes.body'%></th>
+    <th><%= t 'buttons.manage'%></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @leave_words.each do |it| %>
+    <tr>
+      <th scope="row"><%= time_ago_in_words it.created_at%></th>
+      <td><pre><%= it.body%></pre></td>
+      <td>
+        <%= link_to t('buttons.delete'), leave_word_path(it), data: {confirm: t('messages.are-you-sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

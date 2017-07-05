@@ -1,0 +1,7 @@
+<h2><%= title t('.title') %></h2>
+<hr/>
+<%= simple_form_for @leave_word do |f| %>
+    <%= f.input :body, as: :text, autofocus: true, input_html: {rows: 6}, hint: t('.hint') %>
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

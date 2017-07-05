@@ -14,6 +14,7 @@
                        {label: 'devise.shared.links.forgot_your_password', href: new_user_password_path},
                        {label: 'devise.shared.links.didn_t_receive_confirmation_instructions', href: new_user_confirmation_path},
                        {label: 'devise.shared.links.didn_t_receive_unlock_instructions', href: new_user_unlock_path},
+                       {label: 'leave_words.new.title', href: new_leave_word_path},
                    ] %>
     <% links.each do |l| %>
         <%= link_to t(l.fetch :label), l.fetch(:href), class: 'dropdown-item' %>

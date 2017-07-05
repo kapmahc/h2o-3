@@ -2,7 +2,7 @@ REDIS_URL=redis://localhost:6379/8
 
 HOST=www.change-me.com
 
-MANAGER=manager@change-me.com
+MANAGER=admin@change-me.com
 MAILER_SENDER=no-reply@change-me.com
 
 H2O_DATABASE_PASSWORD=kaXaWah8riurireex8bahm5eitu5phem

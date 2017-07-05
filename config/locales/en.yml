@@ -30,13 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  shared:
-    personal-bar:
-      welcome: Welcome，%{name}
-      profile: Profile
-      sign-in-or-up: Sign in/up
-      sign-out: Sign out
-    search-form:
-      submit: Search
-    footer:
-      all-languages: This site in other languages
+  messages:
+    success: Success
+    failed: Failed
+    are-you-sure: Are you sure?
+  leave_words:
+    index:
+      title: Leave words
+    new:
+      title: Leave me a message
+      hint: Please leave your preferred contact method (phone number, email address, etc.)

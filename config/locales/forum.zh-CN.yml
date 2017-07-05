@@ -22,6 +22,8 @@ zh-CN:
         title: 标签列表
       hot:
         title: 热门标签
+      latest:
+        title: 最新标签
       show:
         title: 标签-%{name}
       form:

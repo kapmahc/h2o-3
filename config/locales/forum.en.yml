@@ -22,6 +22,8 @@ en:
         title: Hot tags
       show:
         title: Tag-%{name}
+      latest:
+        title: Latest tags
       form:
         title: Tag
     comments:

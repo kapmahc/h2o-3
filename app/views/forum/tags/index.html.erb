@@ -16,7 +16,7 @@
   <% Forum::Tag.all.order(updated_at: :desc).each do |it| %>
       <tr>
         <th scope="row"><%= time_ago_in_words it.updated_at %></th>
-        <td><%= it.name %></td>
+        <td><%= link_to it.name, forum_tag_path(it), target: :_blank %></td>
         <td>
           <div class="btn-group btn-group-sm">
             <%= link_to t('buttons.edit'), edit_forum_tag_path(it), class: 'btn btn-warning'%>

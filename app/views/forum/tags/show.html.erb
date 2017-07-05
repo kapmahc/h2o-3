@@ -1,0 +1,3 @@
+<h2><%= title t('.title', name:@tag.name)%></h2>
+<hr/>
+<%= render 'forum/articles/list', items: @tag.forum_articles.order(updated_at: :desc).all %>

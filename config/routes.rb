@@ -7,20 +7,18 @@ Rails.application.routes.draw do
   namespace :forum do
     resources :tags do
       collection do
-        get 'hot'
+        get 'latest'
       end
     end
 
     resources :articles do
       collection do
-        get 'hot'
         get 'latest'
       end
     end
 
     resources :comments, except: [:show] do
       collection do
-        get 'hot'
         get 'latest'
       end
     end

@@ -3,6 +3,9 @@ class Forum::TagsController < ApplicationController
     authorize Forum::Tag
   end
 
+  def show
+    @tag = Forum::Tag.find(params[:id])
+  end
 
   def new
     authorize Forum::Tag

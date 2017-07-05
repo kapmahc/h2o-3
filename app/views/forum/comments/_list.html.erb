@@ -1,0 +1,9 @@
+<%items.each do |it|%>
+    <blockquote class="blockquote">
+      <p class="mb-0"><%= md2ht it.body%></p>
+      <footer class="blockquote-footer">
+        <%= it.user.name%>
+        <cite title="Source Title"><%= time_ago_in_words it.updated_at %></cite>
+      </footer>
+    </blockquote>
+<%end%>

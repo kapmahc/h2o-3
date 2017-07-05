@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <%= display_meta_tags site: Setting["#{locale}.site.title"],
-                        description: Setting["#{locale}.site.description"],
-                        keywords: Setting["#{locale}.site.keywords"],
+  <%= display_meta_tags site: site_info(:title),
+                        description: site_info(:description),
+                        keywords: site_info(:keywords),
                         reverse: true %>
   <link rel="icon" type="image/png" href="/favicon.png"/>
   <%= csrf_meta_tags %>

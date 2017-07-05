@@ -1,8 +1,8 @@
 class LeaveWordsController < ApplicationController
 
   def index
+    authorize :dashboard, :admin?
     @leave_words = LeaveWord.all
-    authorize @leave_words
   end
 
   def new
@@ -11,8 +11,8 @@ class LeaveWordsController < ApplicationController
   end
 
   def create
+    authorize :dashboard, :admin?
     @leave_word = LeaveWord.new params.require(:leave_word).permit(:body)
-    authorize @leave_word
 
     if @leave_word.save
       flash[:notice] = t 'messages.success'
@@ -23,8 +23,8 @@ class LeaveWordsController < ApplicationController
   end
 
   def destroy
+    authorize :dashboard, :admin?
     @leave_word = LeaveWord.find params.fetch(:id)
-    authorize @leave_word
     @leave_word.destroy
     redirect_to leave_words_path
   end

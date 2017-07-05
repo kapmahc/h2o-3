@@ -2,7 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <%= link_to Setting["#{locale}.site.sub-title"] || '', root_path, class: 'navbar-brand' %>
+  <%= link_to  site_info(:sub_title), root_path, class: 'navbar-brand' %>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
 
@@ -21,9 +21,9 @@
           <% end %>
       <% end %>
 
-      <%= render 'shared/personal-bar' %>
+      <%= render 'shared/personal_bar' %>
 
     </ul>
-    <%= render 'shared/search-form' %>
+    <%= render 'shared/search_form' %>
   </div>
 </nav>

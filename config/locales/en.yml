@@ -33,12 +33,24 @@ en:
   messages:
     success: Success
     failed: Failed
-    are-you-sure: Are you sure?
+    are_you_sure: Are you sure?
   home:
     dashboard:
       title: Dashboard
       self: Account
       site: Site
+  admin:
+    site:
+      info:
+        title: Info
+        form:
+          title: Title
+          sub_title: Sub title
+          keywords: Keywords
+          description: Description
+          copyright: Copyright
+      status:
+        title: Status
   leave_words:
     index:
       title: Leave words

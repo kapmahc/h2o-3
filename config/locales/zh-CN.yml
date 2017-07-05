@@ -2,7 +2,7 @@ zh-CN:
   messages:
     success: 操作成功
     failed: 操作失败
-    are-you-sure: 你确定么？
+    are_you_sure: 你确定么？
   attributes:
     created_at: 创建时间
     body: 正文
@@ -16,6 +16,18 @@ zh-CN:
       title: 控制面板
       self: 账户信息
       site: 站点设置
+  admin:
+    site:
+      info:
+        title: 基本信息
+        form:
+          title: 主标题
+          sub_title: 副标题
+          keywords: 关键字
+          description: 说明信息
+          copyright: 版权信息
+      status:
+        title: 系统状态
   leave_words:
     index:
       title: 留言板

@@ -15,7 +15,7 @@
       <th scope="row"><%= time_ago_in_words it.created_at%></th>
       <td><pre><%= it.body%></pre></td>
       <td>
-        <%= link_to t('buttons.delete'), leave_word_path(it), data: {confirm: t('messages.are-you-sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
+        <%= link_to t('buttons.delete'), leave_word_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
       </td>
     </tr>
   <% end %>

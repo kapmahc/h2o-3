@@ -1,6 +1,6 @@
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" id="personal-bar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <%= user_signed_in? ? t('.welcome', name: current_user.name) : t('.sign-in-or-up') %>
+    <%= user_signed_in? ? t('.welcome', name: current_user.name) : t('.sign_in_or_up') %>
   </a>
   <div class="dropdown-menu" aria-labelledby="personal-bar">
     <% links = user_signed_in? ?
@@ -23,7 +23,7 @@
 
     <% if user_signed_in? %>
         <div class="dropdown-divider"></div>
-        <%= link_to t('.sign-out'), destroy_user_session_path, class: 'dropdown-item', data: {confirm: t('devise.registrations.edit.are_you_sure')}, method: :delete %>
+        <%= link_to t('.sign_out'), destroy_user_session_path, class: 'dropdown-item', data: {confirm: t('devise.registrations.edit.are_you_sure')}, method: :delete %>
     <% end %>
   </div>
 </li>

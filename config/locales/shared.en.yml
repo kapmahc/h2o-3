@@ -1,11 +1,11 @@
 en:
   shared:
-    personal-bar:
+    personal_bar:
       welcome: Welcome，%{name}
       profile: Profile
-      sign-in-or-up: Sign in/up
-      sign-out: Sign out
-    search-form:
+      sign_in_or_up: Sign in/up
+      sign_out: Sign out
+    search_form:
       submit: Search
     footer:
-      all-languages: This site in other languages
+      all_languages: This site in other languages

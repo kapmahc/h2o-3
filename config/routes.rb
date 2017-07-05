@@ -2,6 +2,12 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'site/info'
+    post 'site/info'
+    get 'site/status'
+  end
+
   resources :leave_words, except: [:edit, :update, :show]
 
   post '/search' => 'home#search' # todo

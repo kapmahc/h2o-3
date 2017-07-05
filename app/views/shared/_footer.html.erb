@@ -1,13 +1,13 @@
 <hr/>
 <footer>
   <p class="float-right">
-    <%= t '.all-languages' %>:
+    <%= t '.all_languages' %>:
     <% Setting.languages.each do |k, v| %>
         <%= link_to v, root_path(locale: k), target: :_blank %>
     <% end %>
   </p>
   <p>
-    &copy; <%= Setting["#{locale}.site.copyright"] %>
+    &copy; <%= site_info :copyright %>
     <% links = Setting["#{locale}.footer.links"] %>
     <% if links %>
         <% links.each do |l| %>

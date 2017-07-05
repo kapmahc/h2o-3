@@ -1,0 +1,25 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= form_tag do %>
+    <div class="form-group">
+      <%= label_tag :title, t('.form.title') %>
+      <%= text_field_tag :title, site_info(:title), class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :sub_title, t('.form.sub_title') %>
+      <%= text_field_tag :sub_title, site_info(:sub_title), class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :keywords, t('.form.keywords') %>
+      <%= text_field_tag :keywords, site_info(:keywords), class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :description, t('.form.description') %>
+      <%= text_area_tag :description, site_info(:description), class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :copyright, t('.form.copyright') %>
+      <%= text_field_tag :copyright, site_info(:copyright), class: 'form-control' %>
+    </div>
+    <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<% end %>

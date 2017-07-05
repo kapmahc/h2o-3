@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard]
 
   def index
   end
 
   def dashboard
+    authorize :dashboard, :sign_in?
     @cards = [
         {
             label: '.self',
@@ -19,6 +19,8 @@ class HomeController < ApplicationController
       @cards << {
           label: '.site',
           links: [
+              {label: 'admin.site.status.title', href: admin_site_status_path},
+              {label: 'admin.site.info.title', href: admin_site_info_path},
               {label: 'leave_words.index.title', href: leave_words_path},
           ]
       }

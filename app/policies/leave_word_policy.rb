@@ -1,3 +1,4 @@
+# FIXME
 class LeaveWordPolicy
   attr_reader :user, :record
 

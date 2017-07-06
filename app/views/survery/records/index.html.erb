@@ -1,2 +1,29 @@
-<h1>Survery::Records#index</h1>
-<p>Find me in app/views/survery/records/index.html.erb</p>
+<h2><%= title @form.title%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t 'attributes.body'%></th>
+    <th><%= t 'buttons.manage'%></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @form.survery_records.order(updated_at: :desc).each do |it| %>
+      <tr>
+        <th scope="row"><%= time_ago_in_words it.updated_at%></th>
+        <td>
+          <ul>
+            <%JSON.parse(it.value).each do |k, v|%>
+            <li><%= k%>: <%= v%></li>
+            <%end%>
+          </ul>
+        </td>
+        <td>
+          <%= link_to t('buttons.delete'), survery_form_record_path(id:it.id), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

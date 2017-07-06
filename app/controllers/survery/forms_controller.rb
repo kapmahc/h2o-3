@@ -1,20 +1,10 @@
 class Survery::FormsController < ApplicationController
-  before_action :require_admin!, except: [:show, :latest, :apply]
-
-  def latest
-
-  end
-  def apply
-
-  end
+  before_action :require_admin!
 
   def index
 
   end
 
-  def show
-    @form = Survery::Form.find(params[:id])
-  end
 
   def new
     @form = Survery::Form.new format: 'markdown'

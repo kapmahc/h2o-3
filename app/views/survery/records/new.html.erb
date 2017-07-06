@@ -1,0 +1,61 @@
+<h2><%= title @form.title%></h2>
+<hr/>
+<p><%= md2ht @form.body%></p>
+<%= form_tag survery_form_records_path(form_id:@form.id) do%>
+ <%@form.survery_fields.order(sort_order: :asc).each do |f|%>
+    <%case f.flag
+      when 'text'%>
+      <div class="form-group">
+        <%= label_tag f.name, f.label %>
+        <%= text_field_tag f.name, f.value, class: 'form-control' %>
+        <small class="form-text text-muted"><%= f.help%></small>
+      </div>
+    <% when 'textarea'%>
+      <div class="form-group">
+        <%= label_tag f.name, f.label %>
+        <%= text_area_tag f.name, f.value, class: 'form-control' %>
+        <small class="form-text text-muted"><%= f.help%></small>
+      </div>
+    <% when 'select'%>
+      <div class="form-group">
+        <%= label_tag f.name, f.label %>
+        <select class="form-control" id="<%= f.name%>" name="<%= f.name%>">
+          <%f.options.split("\r\n").each do |o|%>
+            <option value="<%= o %>"><%= o %></option>
+          <%end%>
+        </select>
+        <small class="form-text text-muted"><%= f.help%></small>
+      </div>
+    <% when 'radios'%>
+      <fieldset class="form-group">
+        <legend><%= f.label %></legend>
+        <%f.options.split("\r\n").each do |o|%>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="<%= f.name %>" value="<%= o%>" <%if f.value == o%>checked<%end%>>
+              <%= o%>
+            </label>
+          </div>
+        <%end%>
+        <small class="form-text text-muted"><%= f.help%></small>
+      </fieldset>
+    <% when 'checkboxes'%>
+        <fieldset class="form-group">
+          <legend><%= f.label %></legend>
+          <%f.options.split("\r\n").each do |o|%>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="<%= f.name %>[]" value="<%= o%>" <%if f.value == o%>checked<%end%>>
+                  <%= o%>
+                </label>
+              </div>
+          <%end%>
+          <small class="form-text text-muted"><%= f.help%></small>
+        </fieldset>
+    <%else%>
+      <%= hidden_field_tag f.name, f.value %>
+    <%end%>
+ <%end%>
+
+ <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<%end%>

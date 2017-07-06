@@ -18,10 +18,11 @@
       <tr>
         <th scope="row"><%= time_ago_in_words it.updated_at %></th>
         <td><%= it.start_up%> <%= it.shut_down%></td>
-        <td><%= link_to it.title, survery_form_path(it), target: :_blank %></td>
+        <td><%= link_to it.title, new_survery_form_record_path(it), target: :_blank %></td>
         <td>
           <div class="btn-group btn-group-sm">
             <%= link_to t('.fields'), survery_form_fields_path(it), class: 'btn btn-info'%>
+            <%= link_to t('buttons.report'), survery_form_records_path(it), class: 'btn btn-success'%>
             <%= link_to t('buttons.edit'), edit_survery_form_path(it), class: 'btn btn-warning'%>
             <%= link_to t('buttons.delete'), survery_form_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
           </div>

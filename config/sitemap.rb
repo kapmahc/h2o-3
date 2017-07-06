@@ -24,7 +24,37 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+
+  # languages
   Setting.languages.map{|k,_|k}.each do |l|
     add root_path(locale:l)
   end
+
+  add donate_path
+
+  # users
+  add new_user_session_path
+  add new_user_registration_path
+  add new_user_password_path
+  add new_user_confirmation_path
+  add new_user_unlock_path
+  add new_leave_word_path
+
+
+  # forum
+  add latest_forum_tags_path
+  add latest_forum_articles_path
+  add latest_forum_comments_path
+  Forum::Article.find_each do |it|
+    add forum_article_path(it), lastmod: it.updated_at
+  end
+  Forum::Tag.find_each do |it|
+    add forum_tag_path(it), lastmod: it.updated_at
+  end
+
+  # survery
+  Survery::Form.find_each do |it|
+    add new_survery_form_record_path(it), lastmod: it.updated_at
+  end
+
 end

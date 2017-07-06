@@ -105,3 +105,4 @@ rails g model User --no-test-framework
   ```
   
 - [For gmail smtp](http://stackoverflow.com/questions/20337040/gmail-smtp-debug-error-please-log-in-via-your-web-browser)
+- [msmtp](https://wiki.archlinux.org/index.php/msmtp)

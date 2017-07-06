@@ -20,6 +20,7 @@ zh-CN:
     summary: 摘要
     logo: 图标
     href: 地址
+    flag: 类型
   activerecord:
     attributes:
       user:

@@ -11,5 +11,6 @@ class CreateSurveryFields < ActiveRecord::Migration[5.1]
       t.belongs_to :survery_form, index: true, null: false
       t.timestamps
     end
+    add_index :survery_fields, [:name, :survery_form_id], unique: true
   end
 end

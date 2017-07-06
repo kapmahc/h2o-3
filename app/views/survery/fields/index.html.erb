@@ -1,2 +1,31 @@
-<h1>Survery::Fields#index</h1>
-<p>Find me in app/views/survery/fields/index.html.erb</p>
+<h2><%= title @form.title%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.sort_order'%></th>
+    <th><%= t 'attributes.name'%></th>
+    <th><%= t 'activerecord.attributes.survery/field.options'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+      <%= link_to t('buttons.new'), new_survery_form_field_path(@form), class: 'btn btn-sm btn-link'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @form.survery_fields.order(sort_order: :asc).all.each do |it| %>
+      <tr>
+        <th scope="row"><%= it.sort_order %></th>
+        <td><%= it.flag%> <%= it.label%></td>
+        <td><pre><%= it.options %></pre></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.edit'), edit_survery_form_field_path(id:it.id), class: 'btn btn-warning'%>
+            <%= link_to t('buttons.delete'), survery_form_field_path(id:it.id), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

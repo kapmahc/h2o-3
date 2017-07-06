@@ -39,6 +39,8 @@ en:
     success: Success
     failed: Failed
     are_you_sure: Are you sure?
+  attributes:
+    flag: Type
   activerecord:
     attributes:
       user:

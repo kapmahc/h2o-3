@@ -12,9 +12,10 @@ Rails.application.routes.draw do
         get 'apply'
         post 'apply'
       end
+
+      resources :fields, except: [:show]
+      resources :records
     end
-    resources :fields, except: [:show]
-    resources :records
   end
 
   # forum

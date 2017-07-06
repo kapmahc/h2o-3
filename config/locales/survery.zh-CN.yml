@@ -4,10 +4,21 @@ zh-CN:
       survery/form:
         start_up: 开始日期
         shut_down: 结束日期
+      survery/field:
+        options: 选项
+        label: 标签
+        value: 默认值
+        help: 提示信息
   survery:
     forms:
       index:
         title: 表单
         dates: 日期
+        fields: 表项
       form:
         title: 表单
+    fields:
+      form:
+        title: 表项
+        hints:
+          options: 每行一条记录

@@ -1,0 +1,13 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @field, url: @field.id ? survery_form_field_path(id:@field.id) : survery_form_fields_path(form_id:@field.survery_form_id) do |f| %>
+    <%= f.input :name, autofocus: true%>
+    <%= f.input :label%>
+    <%= f.input :flag, collection: %w(text textarea hidden select checkboxes radios) %>
+    <%= f.input :value%>
+    <%= f.input :help, as: :text, input_html: {rows: 8} %>
+    <%= f.input :options, as: :text, input_html: {rows: 8}, hint: t('.hints.options') %>
+    <%= f.input :sort_order, collection: -10..10 %>
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

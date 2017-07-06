@@ -4,6 +4,9 @@ en:
       survery/form:
         start_up: Begin date
         shut_down: End date
+      survery/field:
+        options: Options
+        value: Default value
   survery:
     forms:
       index:
@@ -11,3 +14,8 @@ en:
         dates: Dates
       form:
         title: Form
+    fields:
+      form:
+        title: Field
+        hints:
+          options: One record per line

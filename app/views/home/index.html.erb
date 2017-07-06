@@ -5,7 +5,7 @@
           <%= image_tag it.logo, class:'card-img-top' %>
         <%end%>
         <div class="card-block">
-          <h4 class="card-title"><%= it.title%></h4>
+          <h4 class="card-title"><%= link_to it.title, it.href, target: :_blank%></h4>
           <p><%= md2ht it.summary%></p>
           <%= link_to it.action, it.href, class: 'btn btn-secondary', target: :_blank%>
         </div>

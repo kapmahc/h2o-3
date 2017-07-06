@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # survery
   namespace :survery do
     resources :forms
-    resources :fields
+    resources :fields, except: [:show]
     resources :records
   end
 

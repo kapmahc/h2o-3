@@ -4,7 +4,6 @@ class CreateSurveryForms < ActiveRecord::Migration[5.1]
       t.string :title, null: false, limit: 255
       t.text :body, null: false
       t.string :format, null: false, limit: 12
-      t.text :fields, null: false
 
       t.datetime :start_up, null: false
       t.datetime :shut_down, null: false

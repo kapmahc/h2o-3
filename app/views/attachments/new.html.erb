@@ -1,0 +1,8 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= form_tag attachments_path, multipart: true do %>
+    <div class="form-group">
+      <%= file_field_tag :file, class:'form-control-file' %>
+    </div>
+    <%= submit_tag t('buttons.submit'), class: 'btn btn-primary' %>
+<%end%>

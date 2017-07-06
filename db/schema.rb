@@ -18,15 +18,13 @@ ActiveRecord::Schema.define(version: 20170705232650) do
   create_table "attachments", force: :cascade do |t|
     t.string "title", limit: 255, null: false
     t.string "content_type", limit: 255, null: false
-    t.integer "length", null: false
-    t.string "resource_type", limit: 255, null: false
-    t.integer "resource_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar", null: false
     t.index ["content_type"], name: "index_attachments_on_content_type"
-    t.index ["resource_type"], name: "index_attachments_on_resource_type"
     t.index ["title"], name: "index_attachments_on_title"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
   end
 
   create_table "cards", force: :cascade do |t|

@@ -47,6 +47,8 @@ Rails.application.routes.draw do
 
   post '/votes' => 'votes#index'
 
+  resources :attachments, only: [:index, :new, :create, :destroy]
+
   # leave words
   resources :leave_words, except: [:edit, :update, :show]
 

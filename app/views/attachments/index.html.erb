@@ -1,0 +1,37 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t 'attributes.title'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+      <%= link_to t('buttons.new'), new_attachment_path, class: 'btn btn-sm btn-link'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @attachments.each do |it| %>
+      <tr>
+        <td><%= time_ago_in_words it.updated_at %></td>
+        <td>
+          <% if it.is_picture? %>
+            <%= link_to it.title, it.avatar.landscape.url, target: :_blank %>
+            <br/>
+            <%= image_tag it.avatar.thumb.url %>
+            <%= image_tag it.avatar.small.url %>
+          <% else %>
+            <%= link_to it.title, it.avatar.url, target: :_blank %>
+          <%end%>
+        </td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.delete'), attachment_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -10,8 +10,9 @@ class HomeController < ApplicationController
         {
             label: '.self',
             links: [
-                {label: 'shared.personal-bar.profile', href: edit_user_registration_path},
+                {label: 'shared.personal_bar.profile', href: edit_user_registration_path},
                 {label: 'devise.invitations.new.header', href: new_user_invitation_path},
+                {label: 'attachments.index.title', href: attachments_path},
             ]
         },
     ]

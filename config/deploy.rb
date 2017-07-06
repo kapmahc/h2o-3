@@ -22,7 +22,7 @@ set :deploy_to, -> {"/var/www/#{fetch :hostname}"}
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, 'config/database.yml', 'config/sidekiq.yml', '.rbenv-vars'
+append :linked_files, 'config/database.yml', 'config/sidekiq.yml', '.rbenv-vars', 'public/favicon.ico'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/assets', 'public/tmp'

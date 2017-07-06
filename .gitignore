@@ -27,3 +27,4 @@
 # Build
 /public/assets
 /public/sitemap*
+/public/tmp

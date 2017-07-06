@@ -12,7 +12,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "uploads/#{model.created_at.year}-#{model.created.month}/#{model.day}"
+    "uploads/#{model.created_at.year}-#{model.created_at.month}/#{model.created_at.day}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -36,10 +36,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [280, 280]
   end
   version :small, if: :is_picture? do
-    process resize_to_fill: [20, 20]
+    process resize_to_fill: [50, 50]
   end
   version :landscape, if: :is_picture? do
-    process resize_to_fill: [20, 20]
+    process resize_to_fit: [1024, 700]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -60,8 +60,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
-  def is_picture?
-    model.content_type.start_with? 'image/'
+
+  def is_picture?(pic)
+    model.content_type.start_with?('image/')
   end
 
 end

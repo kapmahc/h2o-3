@@ -87,3 +87,8 @@ en:
     new:
       title: Leave me a message
       hint: Please leave your preferred contact method (phone number, email address, etc.)
+  attachments:
+    index:
+      title: Attachments
+    new:
+      title: Upload files

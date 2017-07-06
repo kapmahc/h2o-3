@@ -1,4 +1,4 @@
-H2O - A complete open source e-commerce solution by Go language.
+H2O - A web application.
 ---
 
 

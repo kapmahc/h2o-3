@@ -27,6 +27,7 @@ class HomeController < ApplicationController
           label: '.site',
           links: [
               {label: 'admin.site.status.title', href: admin_site_status_path},
+              {label: 'admin.site.jobs.title', href: sidekiq_web_path},
               {label: 'admin.site.info.title', href: admin_site_info_path},
               {label: 'admin.site.nav.header', href: admin_site_nav_path(loc: :header, type: :dropdown)},
               {label: 'admin.site.nav.footer', href: admin_site_nav_path(loc: :footer, type: :link)},
@@ -38,6 +39,14 @@ class HomeController < ApplicationController
               {label: 'leave_words.index.title', href: leave_words_path},
           ]
       }
+
+      @cards << {
+          label: '.survery',
+          links: [
+              {label: 'survery.forms.index.title', href: survery_forms_path},
+          ]
+      }
+
       forum_links << {label: 'forum.tags.index.title', href: forum_tags_path}
     end
 

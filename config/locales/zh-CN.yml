@@ -30,6 +30,7 @@ zh-CN:
       self: 账户信息
       site: 站点设置
       forum: 社区
+      survery: 问卷调查
     donate:
       title: 捐赠
   admin:
@@ -49,6 +50,8 @@ zh-CN:
         footer: 底部导航
       languages:
         title: 语言列表
+      jobs:
+        title: 后台任务
       donate:
         title: 捐赠页面
         form:

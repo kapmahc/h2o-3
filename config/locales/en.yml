@@ -48,6 +48,7 @@ en:
       title: Dashboard
       self: Account
       site: Site
+      survery: Survery
     donate:
       title: Donate
   admin:
@@ -67,6 +68,8 @@ en:
         footer: Footer Nav
       languages:
         title: Languages
+      jobs:
+        title: Background jobs
       donate:
         title: Donate
         form:

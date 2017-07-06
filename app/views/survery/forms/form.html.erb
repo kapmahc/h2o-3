@@ -1,0 +1,11 @@
+<h2><%= title t('.title')%></h2>
+<hr/>
+<%= simple_form_for @form do |f| %>
+    <%= f.input :title, autofocus: true%>
+    <%= f.input :format, as: :hidden%>
+    <%= f.input :body, as: :text, input_html: {rows: 6}, hint: t('hints.formats.markdown') %>
+    <%= f.input :start_up, as: :date%>
+    <%= f.input :shut_down, as: :date%>
+    <%= f.button :submit, t('buttons.submit') %>
+<% end %>
+

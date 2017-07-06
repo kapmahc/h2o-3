@@ -1,2 +1,31 @@
-<h1>Survery::Forms#index</h1>
-<p>Find me in app/views/survery/forms/index.html.erb</p>
+<h2><%= title t('.title')%></h2>
+<hr/>
+
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th><%= t 'attributes.updated_at'%></th>
+    <th><%= t '.dates'%></th>
+    <th><%= t 'attributes.title'%></th>
+    <th>
+      <%= t 'buttons.manage'%>
+      <%= link_to t('buttons.new'), new_survery_form_path, class: 'btn btn-sm btn-link'%>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% Survery::Form.order(updated_at: :desc).all.each do |it| %>
+      <tr>
+        <th scope="row"><%= time_ago_in_words it.updated_at %></th>
+        <td><%= it.start_up%> <%= it.shut_down%></td>
+        <td><%= link_to it.title, survery_form_path(it), target: :_blank %></td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <%= link_to t('buttons.edit'), edit_survery_form_path(it), class: 'btn btn-warning'%>
+            <%= link_to t('buttons.delete'), survery_form_path(it), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 20170705232650) do
     t.string "title", limit: 255, null: false
     t.text "body", null: false
     t.string "format", limit: 12, null: false
-    t.datetime "start_up", null: false
-    t.datetime "shut_down", null: false
+    t.date "start_up", null: false
+    t.date "shut_down", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["format"], name: "index_survery_forms_on_format"

@@ -1,5 +1,13 @@
 en:
+  activerecord:
+    attributes:
+      survery/form:
+        start_up: Begin date
+        shut_down: End date
   survery:
     forms:
       index:
         title: Forms
+        dates: Dates
+      form:
+        title: Form

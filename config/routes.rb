@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
   # survery
   namespace :survery do
-    resources :forms
+    resources :forms do
+      collection do
+        get 'latest'
+      end
+      member do
+        get 'apply'
+        post 'apply'
+      end
+    end
     resources :fields, except: [:show]
     resources :records
   end

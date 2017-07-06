@@ -10,6 +10,8 @@
 <%= render 'shared/vote', rty:@article.class, rid:@article.id%>
 <h4>
   <%= t '.comments'%>
-  <%= link_to t('buttons.new'), new_forum_comment_path(forum_article_id: @article.id), class: 'btn btn-sm btn-link'%>
+  <% if policy(Forum::Comment).create? %>
+    <%= link_to t('buttons.new'), new_forum_comment_path(forum_article_id: @article.id), class: 'btn btn-sm btn-link'%>
+  <%end%>
 </h4>
 <%= render 'forum/comments/list', items:@article.forum_comments.order(updated_at: :desc)%>

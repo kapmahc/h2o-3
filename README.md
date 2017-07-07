@@ -16,7 +16,7 @@ EDITOR=vim visudo # add line: deploy ALL=(ALL) NOPASSWD: ALL
 ```
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-cat /tmp/id ~/.ssh/authorized_keys
+cat /tmp/id_rsa.pub ~/.ssh/authorized_keys
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 

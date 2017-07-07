@@ -3,7 +3,7 @@
       <div class="card">
         <div class="card-block">
           <h4 class="card-title"><%= link_to it.title, forum_article_path(it)%></h4>
-          <p><%= md2ht it.body%></p>
+          <p><%= md2ht truncate(it.body, length:255)%></p>
           <%= link_to t('buttons.show'), forum_article_path(it), class: 'btn btn-secondary', target: :_blank%>
         </div>
       </div>

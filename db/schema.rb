@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705232650) do
+ActiveRecord::Schema.define(version: 20170707200118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,240 @@ ActiveRecord::Schema.define(version: 20170705232650) do
   create_table "leave_words", force: :cascade do |t|
     t.text "body", null: false
     t.datetime "created_at", null: false
+  end
+
+  create_table "mall_addresses", force: :cascade do |t|
+    t.string "name", limit: 64, null: false
+    t.string "phone", limit: 16, null: false
+    t.string "zip", limit: 8, null: false
+    t.string "street", limit: 255, null: false
+    t.string "city", limit: 32, null: false
+    t.string "state", limit: 32, null: false
+    t.string "country", limit: 32, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city"], name: "index_mall_addresses_on_city"
+    t.index ["country"], name: "index_mall_addresses_on_country"
+    t.index ["name"], name: "index_mall_addresses_on_name"
+    t.index ["phone"], name: "index_mall_addresses_on_phone"
+    t.index ["state"], name: "index_mall_addresses_on_state"
+    t.index ["user_id"], name: "index_mall_addresses_on_user_id"
+    t.index ["zip"], name: "index_mall_addresses_on_zip"
+  end
+
+  create_table "mall_catalogs", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "assets"
+    t.integer "sort_order", limit: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_mall_catalogs_on_format"
+    t.index ["name"], name: "index_mall_catalogs_on_name"
+  end
+
+  create_table "mall_charge_backs", force: :cascade do |t|
+    t.string "state", limit: 16, null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.bigint "mall_return_request_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_return_request_id"], name: "index_mall_charge_backs_on_mall_return_request_id"
+    t.index ["state"], name: "index_mall_charge_backs_on_state"
+    t.index ["user_id"], name: "index_mall_charge_backs_on_user_id"
+  end
+
+  create_table "mall_logs", force: :cascade do |t|
+    t.string "action", limit: 255, null: false
+    t.integer "quantity", null: false
+    t.bigint "user_id", null: false
+    t.bigint "mall_variant_id", null: false
+    t.bigint "mall_store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action"], name: "index_mall_logs_on_action"
+    t.index ["mall_store_id"], name: "index_mall_logs_on_mall_store_id"
+    t.index ["mall_variant_id"], name: "index_mall_logs_on_mall_variant_id"
+    t.index ["user_id"], name: "index_mall_logs_on_user_id"
+  end
+
+  create_table "mall_orders", force: :cascade do |t|
+    t.string "serial", limit: 255, null: false
+    t.string "state", limit: 16, null: false
+    t.string "shipment_state", limit: 16, null: false
+    t.string "payment_state", limit: 16, null: false
+    t.integer "total_cents", default: 0, null: false
+    t.string "total_currency", default: "USD", null: false
+    t.integer "items_total_cents", default: 0, null: false
+    t.string "items_total_currency", default: "USD", null: false
+    t.integer "adjustment_total_cents", default: 0, null: false
+    t.string "adjustment_total_currency", default: "USD", null: false
+    t.text "items", null: false
+    t.datetime "completed_at"
+    t.bigint "user_id", null: false
+    t.bigint "mall_address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_address_id"], name: "index_mall_orders_on_mall_address_id"
+    t.index ["payment_state"], name: "index_mall_orders_on_payment_state"
+    t.index ["serial"], name: "index_mall_orders_on_serial", unique: true
+    t.index ["shipment_state"], name: "index_mall_orders_on_shipment_state"
+    t.index ["state"], name: "index_mall_orders_on_state"
+    t.index ["user_id"], name: "index_mall_orders_on_user_id"
+  end
+
+  create_table "mall_payment_methods", force: :cascade do |t|
+    t.string "flag", limit: 16, null: false
+    t.boolean "active", null: false
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "profile", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flag"], name: "index_mall_payment_methods_on_flag"
+    t.index ["format"], name: "index_mall_payment_methods_on_format"
+    t.index ["name"], name: "index_mall_payment_methods_on_name"
+  end
+
+  create_table "mall_payments", force: :cascade do |t|
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.string "state", limit: 16, null: false
+    t.string "response_code", limit: 3
+    t.text "avs_response"
+    t.bigint "mall_payment_method_id", null: false
+    t.bigint "mall_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_order_id"], name: "index_mall_payments_on_mall_order_id"
+    t.index ["mall_payment_method_id"], name: "index_mall_payments_on_mall_payment_method_id"
+    t.index ["response_code"], name: "index_mall_payments_on_response_code"
+    t.index ["state"], name: "index_mall_payments_on_state"
+  end
+
+  create_table "mall_products", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "contact", null: false
+    t.text "assets"
+    t.text "fields"
+    t.bigint "mall_store_id", null: false
+    t.bigint "mall_vendor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_mall_products_on_format"
+    t.index ["mall_store_id"], name: "index_mall_products_on_mall_store_id"
+    t.index ["mall_vendor_id"], name: "index_mall_products_on_mall_vendor_id"
+    t.index ["name"], name: "index_mall_products_on_name"
+  end
+
+  create_table "mall_return_requests", force: :cascade do |t|
+    t.string "state", limit: 16, null: false
+    t.text "reason", null: false
+    t.text "items", null: false
+    t.bigint "mall_order_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_order_id"], name: "index_mall_return_requests_on_mall_order_id"
+    t.index ["state"], name: "index_mall_return_requests_on_state"
+    t.index ["user_id"], name: "index_mall_return_requests_on_user_id"
+  end
+
+  create_table "mall_shipments", force: :cascade do |t|
+    t.string "state", limit: 16, null: false
+    t.integer "cost_cents", default: 0, null: false
+    t.string "cost_currency", default: "USD", null: false
+    t.string "serial", limit: 255, null: false
+    t.datetime "shipped_at"
+    t.bigint "mall_shipment_method_id", null: false
+    t.bigint "mall_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_order_id"], name: "index_mall_shipments_on_mall_order_id"
+    t.index ["mall_shipment_method_id"], name: "index_mall_shipments_on_mall_shipment_method_id"
+    t.index ["state"], name: "index_mall_shipments_on_state"
+  end
+
+  create_table "mall_shipping_methods", force: :cascade do |t|
+    t.boolean "active", null: false
+    t.string "tracking", limit: 255
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "profile", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_mall_shipping_methods_on_format"
+    t.index ["name"], name: "index_mall_shipping_methods_on_name"
+  end
+
+  create_table "mall_stocks", force: :cascade do |t|
+    t.integer "quantity", null: false
+    t.bigint "mall_variant_id", null: false
+    t.bigint "mall_store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mall_store_id", "mall_variant_id"], name: "index_mall_stocks_on_mall_store_id_and_mall_variant_id", unique: true
+    t.index ["mall_store_id"], name: "index_mall_stocks_on_mall_store_id"
+    t.index ["mall_variant_id"], name: "index_mall_stocks_on_mall_variant_id"
+  end
+
+  create_table "mall_stores", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.string "currency", limit: 3, null: false
+    t.text "description", null: false
+    t.text "contact", null: false
+    t.text "assets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["currency"], name: "index_mall_stores_on_currency"
+    t.index ["format"], name: "index_mall_stores_on_format"
+    t.index ["name"], name: "index_mall_stores_on_name"
+  end
+
+  create_table "mall_variants", force: :cascade do |t|
+    t.string "sku"
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "assets"
+    t.text "fields"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.integer "cost_cents", default: 0, null: false
+    t.string "cost_currency", default: "USD", null: false
+    t.bigint "mall_product_id", null: false
+    t.bigint "mall_store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_mall_variants_on_format"
+    t.index ["mall_product_id"], name: "index_mall_variants_on_mall_product_id"
+    t.index ["mall_store_id"], name: "index_mall_variants_on_mall_store_id"
+    t.index ["name"], name: "index_mall_variants_on_name"
+    t.index ["sku", "mall_store_id"], name: "index_mall_variants_on_sku_and_mall_store_id", unique: true
+  end
+
+  create_table "mall_vendors", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.string "format", limit: 12, null: false
+    t.text "description", null: false
+    t.text "assets"
+    t.text "fields"
+    t.bigint "mall_store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["format"], name: "index_mall_vendors_on_format"
+    t.index ["mall_store_id"], name: "index_mall_vendors_on_mall_store_id"
+    t.index ["name"], name: "index_mall_vendors_on_name"
   end
 
   create_table "roles", force: :cascade do |t|

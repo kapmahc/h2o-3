@@ -59,6 +59,11 @@ mkdir -p /var/www/s3
 minio server /var/www/s3 
 ```
 
+* Install  libpostal data
+```bash
+libpostal_data download all /usr/local/share/libpostal
+```
+
 ## Database
 
 * Create database
@@ -106,3 +111,4 @@ rails g model User --no-test-framework
   
 - [For gmail smtp](http://stackoverflow.com/questions/20337040/gmail-smtp-debug-error-please-log-in-via-your-web-browser)
 - [msmtp](https://wiki.archlinux.org/index.php/msmtp)
+- [postal](https://github.com/openvenues/ruby_postal)

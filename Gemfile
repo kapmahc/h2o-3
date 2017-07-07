@@ -92,6 +92,9 @@ gem 'sitemap_generator'
 
 gem 'kramdown'
 
+gem 'money-rails', '~>1'
+# gem 'ruby_postal'
+
 group :development do
   gem 'capistrano', '~> 3.8'
   gem 'capistrano-rbenv', '~> 2.0'

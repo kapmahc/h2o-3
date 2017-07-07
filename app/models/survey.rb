@@ -1,5 +1,5 @@
-module Survery
+module Survey
   def self.table_name_prefix
-    'survery_'
+    'survey_'
   end
 end

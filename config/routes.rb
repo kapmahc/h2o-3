@@ -2,8 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
-  # survery
-  namespace :survery do
+  # survey
+  namespace :survey do
     resources :forms, except: [:show] do
       resources :fields, except: [:show]
       resources :records, only: [:new, :create, :destroy, :index]

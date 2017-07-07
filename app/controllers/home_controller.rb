@@ -41,9 +41,9 @@ class HomeController < ApplicationController
       }
 
       @cards << {
-          label: '.survery',
+          label: '.survey',
           links: [
-              {label: 'survery.forms.index.title', href: survery_forms_path},
+              {label: 'survey.forms.index.title', href: survey_forms_path},
           ]
       }
 

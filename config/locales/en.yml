@@ -50,7 +50,7 @@ en:
       title: Dashboard
       self: Account
       site: Site
-      survery: Survery
+      survey: Survey
     donate:
       title: Donate
   admin:

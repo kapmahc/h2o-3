@@ -1,8 +1,8 @@
 <h2><%= title @form.title%></h2>
 <hr/>
 <p><%= md2ht @form.body%></p>
-<%= form_tag survery_form_records_path(form_id:@form.id) do%>
- <%@form.survery_fields.order(sort_order: :asc).each do |f|%>
+<%= form_tag survey_form_records_path(form_id:@form.id) do%>
+ <%@form.survey_fields.order(sort_order: :asc).each do |f|%>
     <%case f.flag
       when 'text'%>
       <div class="form-group">

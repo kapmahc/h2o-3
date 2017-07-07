@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @form.survery_records.order(updated_at: :desc).each do |it| %>
+  <% @form.survey_records.order(updated_at: :desc).each do |it| %>
       <tr>
         <th scope="row"><%= time_ago_in_words it.updated_at%></th>
         <td>
@@ -21,7 +21,7 @@
           </ul>
         </td>
         <td>
-          <%= link_to t('buttons.delete'), survery_form_record_path(id:it.id), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
+          <%= link_to t('buttons.delete'), survey_form_record_path(id:it.id), data: {confirm: t('messages.are_you_sure')}, method: :delete, class: 'btn btn-sm btn-danger' %>
         </td>
       </tr>
   <% end %>

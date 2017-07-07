@@ -31,7 +31,7 @@ zh-CN:
       self: 账户信息
       site: 站点设置
       forum: 社区
-      survery: 问卷调查
+      survey: 问卷调查
     donate:
       title: 捐赠
   admin:

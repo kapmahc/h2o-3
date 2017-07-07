@@ -1,6 +1,6 @@
 <h2><%= title t('.title')%></h2>
 <hr/>
-<%= simple_form_for @field, url: @field.id ? survery_form_field_path(id:@field.id) : survery_form_fields_path(form_id:@field.survery_form_id) do |f| %>
+<%= simple_form_for @field, url: @field.id ? survey_form_field_path(id:@field.id) : survey_form_fields_path(form_id:@field.survey_form_id) do |f| %>
     <%= f.input :name, autofocus: true%>
     <%= f.input :label%>
     <%= f.input :flag, collection: %w(text textarea hidden select checkboxes radios) %>

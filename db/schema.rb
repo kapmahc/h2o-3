@@ -158,12 +158,12 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.integer "adjustment_total_cents", default: 0, null: false
     t.string "adjustment_total_currency", default: "USD", null: false
     t.text "items", null: false
+    t.string "address", null: false
     t.datetime "completed_at"
     t.bigint "user_id", null: false
-    t.bigint "mall_address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mall_address_id"], name: "index_mall_orders_on_mall_address_id"
+    t.index ["address"], name: "index_mall_orders_on_address"
     t.index ["payment_state"], name: "index_mall_orders_on_payment_state"
     t.index ["serial"], name: "index_mall_orders_on_serial", unique: true
     t.index ["shipment_state"], name: "index_mall_orders_on_shipment_state"
@@ -285,7 +285,8 @@ ActiveRecord::Schema.define(version: 20170707200118) do
   end
 
   create_table "mall_variants", force: :cascade do |t|
-    t.string "sku"
+    t.string "sku", limit: 255, null: false
+    t.string "state", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.string "format", limit: 12, null: false
     t.text "description", null: false
@@ -341,7 +342,7 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
   end
 
-  create_table "survery_fields", force: :cascade do |t|
+  create_table "survey_fields", force: :cascade do |t|
     t.string "name", limit: 16, null: false
     t.string "label", limit: 255, null: false
     t.string "flag", limit: 12, null: false
@@ -349,14 +350,15 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.string "help", limit: 800
     t.text "options"
     t.integer "sort_order", limit: 2, null: false
-    t.bigint "survery_form_id", null: false
+    t.bigint "survey_form_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_survery_fields_on_name"
-    t.index ["survery_form_id"], name: "index_survery_fields_on_survery_form_id"
+    t.index ["name", "survey_form_id"], name: "index_survey_fields_on_name_and_survey_form_id", unique: true
+    t.index ["name"], name: "index_survey_fields_on_name"
+    t.index ["survey_form_id"], name: "index_survey_fields_on_survey_form_id"
   end
 
-  create_table "survery_forms", force: :cascade do |t|
+  create_table "survey_forms", force: :cascade do |t|
     t.string "title", limit: 255, null: false
     t.text "body", null: false
     t.string "format", limit: 12, null: false
@@ -364,17 +366,17 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.date "shut_down", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["format"], name: "index_survery_forms_on_format"
-    t.index ["title"], name: "index_survery_forms_on_title"
+    t.index ["format"], name: "index_survey_forms_on_format"
+    t.index ["title"], name: "index_survey_forms_on_title"
   end
 
-  create_table "survery_records", force: :cascade do |t|
+  create_table "survey_records", force: :cascade do |t|
     t.inet "client_ip", null: false
     t.text "value", null: false
-    t.bigint "survery_form_id", null: false
+    t.bigint "survey_form_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["survery_form_id"], name: "index_survery_records_on_survery_form_id"
+    t.index ["survey_form_id"], name: "index_survey_records_on_survey_form_id"
   end
 
   create_table "users", force: :cascade do |t|

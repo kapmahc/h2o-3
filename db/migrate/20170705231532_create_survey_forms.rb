@@ -1,6 +1,6 @@
-class CreateSurveryForms < ActiveRecord::Migration[5.1]
+class CreateSurveyForms < ActiveRecord::Migration[5.1]
   def change
-    create_table :survery_forms do |t|
+    create_table :survey_forms do |t|
       t.string :title, null: false, limit: 255
       t.text :body, null: false
       t.string :format, null: false, limit: 12
@@ -10,7 +10,7 @@ class CreateSurveryForms < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :survery_forms, :title
-    add_index :survery_forms, :format
+    add_index :survey_forms, :title
+    add_index :survey_forms, :format
   end
 end

@@ -1,15 +1,15 @@
 zh-CN:
   activerecord:
     attributes:
-      survery/form:
+      survey/form:
         start_up: 开始日期
         shut_down: 结束日期
-      survery/field:
+      survey/field:
         options: 选项
         label: 标签
         value: 默认值
         help: 提示信息
-  survery:
+  survey:
     forms:
       index:
         title: 表单

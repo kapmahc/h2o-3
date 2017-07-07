@@ -1,13 +1,13 @@
 en:
   activerecord:
     attributes:
-      survery/form:
+      survey/form:
         start_up: Begin date
         shut_down: End date
-      survery/field:
+      survey/field:
         options: Options
         value: Default value
-  survery:
+  survey:
     forms:
       index:
         title: Forms

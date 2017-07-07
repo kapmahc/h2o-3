@@ -52,9 +52,9 @@ SitemapGenerator::Sitemap.create do
     add forum_tag_path(it), lastmod: it.updated_at
   end
 
-  # survery
-  Survery::Form.find_each do |it|
-    add new_survery_form_record_path(it), lastmod: it.updated_at
+  # survey
+  Survey::Form.find_each do |it|
+    add new_survey_form_record_path(it), lastmod: it.updated_at
   end
 
 end

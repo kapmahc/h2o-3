@@ -20,10 +20,10 @@
           <% if it.is_picture? %>
             <%= link_to it.title, it.avatar.landscape.url, target: :_blank %>
             <br/>
-            <%= image_tag it.avatar.thumb.url %>
-            <%= image_tag it.avatar.small.url %>
+            <%= link_to image_tag(it.avatar.thumb.url), it.avatar.thumb.url, target: :_blank %>
+            <%= link_to image_tag(it.avatar.small.url), it.avatar.small.url, target: :_blank %>
           <% else %>
-            <%= link_to it.title, it.avatar.url, target: :_blank %>
+            <%= link_to it.title, it.avatar.url %>
           <%end%>
         </td>
         <td>

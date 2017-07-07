@@ -12,9 +12,8 @@ class AttachmentsController < ApplicationController
   def create
     authorize Attachment
 
-    file = params.fetch(:file)
-    @attachment = Attachment.new title: file.original_filename, content_type: file.content_type, user_id: current_user.id
-    @attachment.avatar = file
+    @attachment = Attachment.new user_id: current_user.id
+    @attachment.read params.fetch(:file)
 
     if @attachment.save
       redirect_to attachments_path

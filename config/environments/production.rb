@@ -102,4 +102,6 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: ENV['MAILER_SENDER']}
 
   config.lograge.enabled = true
+
+  config.cache_store = :redis_store, "#{ENV['REDIS_URL']}/cache", { expires_in: 1.day }
 end

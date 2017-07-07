@@ -56,6 +56,7 @@ end
 # MY ADD
 
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n'
+gem 'redis-rails'
 
 
 # https://github.com/twbs/bootstrap-rubygem

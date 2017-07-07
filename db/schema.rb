@@ -321,6 +321,42 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.index ["name"], name: "index_mall_vendors_on_name"
   end
 
+  create_table "pos_orders", force: :cascade do |t|
+    t.string "serial", limit: 255, null: false
+    t.text "items", null: false
+    t.text "flag", null: false
+    t.text "description", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.integer "payment_cents", default: 0, null: false
+    t.string "payment_currency", default: "USD", null: false
+    t.integer "charge_back_cents", default: 0, null: false
+    t.string "charge_back_currency", default: "USD", null: false
+    t.integer "discount_cents", default: 0, null: false
+    t.string "discount_currency", default: "USD", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flag"], name: "index_pos_orders_on_flag"
+    t.index ["serial"], name: "index_pos_orders_on_serial", unique: true
+    t.index ["user_id"], name: "index_pos_orders_on_user_id"
+  end
+
+  create_table "pos_returns", force: :cascade do |t|
+    t.text "flag", null: false
+    t.text "items", null: false
+    t.text "description", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.bigint "user_id", null: false
+    t.bigint "pos_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flag"], name: "index_pos_returns_on_flag"
+    t.index ["pos_order_id"], name: "index_pos_returns_on_pos_order_id"
+    t.index ["user_id"], name: "index_pos_returns_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"

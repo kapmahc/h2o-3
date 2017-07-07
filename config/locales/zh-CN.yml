@@ -8,6 +8,7 @@ zh-CN:
     success: 操作成功
     failed: 操作失败
     are_you_sure: 你确定么？
+    not_allow: 不允许的操作
   attributes:
     name: 名称
     action: 动作
@@ -64,6 +65,7 @@ zh-CN:
         user: 用户
         current_sign_in: 当前登录
         last_sign_in: 上次登录
+        roles: 角色
     cards:
       index:
         title: 卡片管理

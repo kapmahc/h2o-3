@@ -8,3 +8,7 @@ zh-CN:
     show: 查看
     upload: 上传
     report: 报表
+    enable: 启用
+    disable: 禁用
+    apply: 应用
+    deny: 阻止

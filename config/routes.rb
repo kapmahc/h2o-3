@@ -49,7 +49,12 @@ Rails.application.routes.draw do
 
     get 'site/status'
 
-    resources :users, only: [:index]
+    resources :users, only: [:index] do
+      member do
+        post 'apply'
+        post 'deny'
+      end
+    end
 
     resources :cards, except: [:show]
   end

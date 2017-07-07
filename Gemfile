@@ -103,6 +103,7 @@ group :development do
   gem 'capistrano', '~> 3.8'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-db-tasks', require: false
   gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 end

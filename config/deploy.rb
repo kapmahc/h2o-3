@@ -42,3 +42,10 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :nginx_use_ssl, ENV['SCHEME'] == 'https'
 set :nginx_config_name, -> { fetch :hostname }
 set :nginx_server_name, -> { fetch :hostname }
+
+# https://github.com/sgruhier/capistrano-db-tasks
+set :db_remote_clean, true
+set :db_dump_dir, './db'
+set :assets_dir, %w(public/assets public/tmp)
+set :local_assets_dir, %w(public/assets public/tmp)
+set :disallow_pushing, true

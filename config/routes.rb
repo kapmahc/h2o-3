@@ -2,6 +2,14 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+
+  # mall
+  namespace :mall do
+    resources :products
+    resources :stores
+    resources :variants
+  end
+
   # survey
   namespace :survey do
     resources :forms, except: [:show] do

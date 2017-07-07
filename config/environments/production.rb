@@ -106,4 +106,7 @@ Rails.application.configure do
   config.cache_store = :redis_store, "#{ENV['REDIS_URL']}/cache", { expires_in: 1.day }
   config.force_ssl = ENV['SCHEME'] == 'https'
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+
+  require 'syslog/logger'
+  config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new ENV['HOST'])
 end

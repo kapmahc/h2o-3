@@ -39,6 +39,6 @@ set :keep_releases, 7
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
-set :nginx_use_ssl, false
+set :nginx_use_ssl, ENV['SCHEME'] == 'https'
 set :nginx_config_name, -> { fetch :hostname }
 set :nginx_server_name, -> { fetch :hostname }

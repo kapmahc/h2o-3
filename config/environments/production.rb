@@ -104,4 +104,5 @@ Rails.application.configure do
   config.lograge.enabled = true
 
   config.cache_store = :redis_store, "#{ENV['REDIS_URL']}/cache", { expires_in: 1.day }
+  config.force_ssl = ENV['SCHEME'] == 'https'
 end

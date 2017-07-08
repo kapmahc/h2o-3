@@ -15,12 +15,25 @@ class HomeController < ApplicationController
                 {label: 'attachments.index.title', href: attachments_path},
             ]
         },
+        {
+            label: '.shopping',
+            links: [
+
+            ],
+        },
     ]
     forum_links = [
         {label: 'forum.articles.new.title', href: new_forum_article_path},
         {label: 'forum.articles.index.title', href: forum_articles_path},
         {label: 'forum.comments.index.title', href: forum_comments_path},
     ]
+
+    mall_card = {
+        label: '.mall',
+        links: [
+            {label: 'mall.stores.index.title', href: mall_stores_path}
+        ],
+    }
 
     if current_user.is_admin?
       @cards << {
@@ -47,7 +60,11 @@ class HomeController < ApplicationController
           ]
       }
 
+      @cards << mall_card
+
       forum_links << {label: 'forum.tags.index.title', href: forum_tags_path}
+    elsif current_user.is_member?
+      @cards << mall_card
     end
 
     @cards << {label: '.forum', links: forum_links}

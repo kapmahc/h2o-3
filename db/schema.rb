@@ -112,9 +112,11 @@ ActiveRecord::Schema.define(version: 20170707200118) do
     t.text "description", null: false
     t.text "assets"
     t.integer "sort_order", limit: 2, null: false
+    t.bigint "mall_store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["format"], name: "index_mall_catalogs_on_format"
+    t.index ["mall_store_id"], name: "index_mall_catalogs_on_mall_store_id"
     t.index ["name"], name: "index_mall_catalogs_on_name"
   end
 

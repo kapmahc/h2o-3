@@ -8,6 +8,7 @@ class CreateMallCatalogs < ActiveRecord::Migration[5.1]
 
       t.integer :sort_order, limit:1, null:false
 
+      t.belongs_to :mall_store, index: true, null: false
       t.timestamps
     end
   end

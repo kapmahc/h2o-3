@@ -2,12 +2,35 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  # pos
+  namespace :pos do
+    root to:'home#index'
+    resources :orders, except: [:show, :destroy]
+    resources :returns, except: [:show, :destroy]
+  end
+
+  # shop
+  namespace :shop do
+    root to:'home#index'
+    resources :stores, only:[:index, :show]
+    resources :products, only:[:index, :show]
+    resources :variants, only:[:index, :show]
+  end
 
   # mall
   namespace :mall do
-    resources :products
     resources :stores
-    resources :variants
+    resources :catalogs
+
+    # resources :products
+    # resources :variants
+    # resources :addresses
+    # resources :payment_methods
+    # resources :payments
+    # resources :shipping_methods
+    # resources :shipments
+
+    root to: 'home#index'
   end
 
   # survey

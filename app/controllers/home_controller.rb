@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
 
   def index
+    home = Setting.home
+    unless home.nil?
+      redirect_to home
+      return
+    end
     @cards = Card.where(loc: 'home').order(sort_order: :desc)
   end
 

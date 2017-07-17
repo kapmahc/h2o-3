@@ -22,17 +22,18 @@ class HomeController < ApplicationController
             ],
         },
     ]
+
+    # forum
     forum_links = [
         {label: 'forum.articles.new.title', href: new_forum_article_path},
         {label: 'forum.articles.index.title', href: forum_articles_path},
         {label: 'forum.comments.index.title', href: forum_comments_path},
     ]
 
+    # mall
     mall_card = {
         label: '.mall',
-        links: [
-            {label: 'mall.stores.index.title', href: mall_stores_path}
-        ],
+        links: Mall::Store.with_role(:manager).map{|s| {label: s.name, href: mall_store_path(s)}}.unshift(label: 'mall.stores.new.title', href: new_mall_store_path),
     }
 
     if current_user.is_admin?

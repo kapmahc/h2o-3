@@ -1,2 +1,5 @@
 en:
   mall:
+    stores:
+      new:
+        title: Add a new store

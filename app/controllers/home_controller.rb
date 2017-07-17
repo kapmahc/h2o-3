@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     home = Setting.home
     unless home.nil?
-      redirect_to home
+      redirect_to "#{home}?locale=#{locale}"
       return
     end
     @cards = Card.where(loc: 'home').order(sort_order: :desc)

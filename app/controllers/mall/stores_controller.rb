@@ -6,7 +6,7 @@ class Mall::StoresController < ApplicationController
 
   def new
     authorize Mall::Store
-    @store = Mall::Store.new format: 'markdown', currency:
+    @store = Mall::Store.new format: 'markdown', currency: :usd
 
   end
 

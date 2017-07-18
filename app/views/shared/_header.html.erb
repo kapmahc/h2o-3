@@ -1,17 +1,16 @@
-<nav class="navbar navbar-expand-md navbar-inverse fixed-top bg-inverse">
+<% links = Setting["#{locale}.nav.header"] %>
+<nav class="navbar navbar-expand-lg navbar-inverse fixed-top bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <%= link_to  site_info(:sub_title), root_path, class: 'navbar-brand' %>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-
-      <% links = Setting["#{locale}.nav.header"] %>
       <% if links %>
           <% links.each_with_index do |d, i| %>
               <% id = "header-dropdown-#{i+1}" %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="<%= id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= d['label'] %></a>
+                <a class="nav-link dropdown-toggle" id="<%= id %>" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= d['label'] %></a>
                 <div class="dropdown-menu" aria-labelledby="<%= id %>">
                   <% d.fetch('items').each do |l| %>
                       <%= link_to l.fetch('label'), l.fetch('href'), class: 'dropdown-item' %>

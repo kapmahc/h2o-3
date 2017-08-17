@@ -1,8 +1,8 @@
 package auth
 
-import "github.com/kapmahc/h2o/base"
+import "github.com/kapmahc/h2o/nut"
 
 // Controller controller
 type Controller struct {
-	base.Controller
+	nut.Controller
 }

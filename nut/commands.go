@@ -6,9 +6,13 @@ import (
 	"html/template"
 	"os"
 	"path"
+	"path/filepath"
 	"time"
 
+	"golang.org/x/text/language"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/toolbox"
 	"github.com/steinbacher/goose"
 	"github.com/urfave/cli"
 )
@@ -126,6 +130,102 @@ func generateMigration(c *cli.Context) error {
 	}
 
 	beego.Notice("generate file ", file)
+	return nil
+}
+
+func generateLocale(c *cli.Context) error {
+	name := c.String("name")
+	if len(name) == 0 {
+		cli.ShowCommandHelp(c, "locale")
+		return nil
+	}
+	lng, err := language.Parse(name)
+	if err != nil {
+		return err
+	}
+	const root = "locales"
+	if err = os.MkdirAll(root, 0700); err != nil {
+		return err
+	}
+	file := path.Join(root, fmt.Sprintf("%s.ini", lng.String()))
+	beego.Notice("generate file", file)
+	fd, err := os.OpenFile(file, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0644)
+	if err != nil {
+		return err
+	}
+	defer fd.Close()
+	return err
+}
+
+func migrateDatabase(*cli.Context) error {
+	conf, err := dbConf()
+	if err != nil {
+		return err
+	}
+
+	target, err := goose.GetMostRecentDBVersion(conf.MigrationsDir)
+	if err != nil {
+		return err
+	}
+
+	return goose.RunMigrations(conf, conf.MigrationsDir, target)
+}
+
+func rollbackDatabase(*cli.Context) error {
+	conf, err := dbConf()
+	if err != nil {
+		return err
+	}
+
+	current, err := goose.GetDBVersion(conf)
+	if err != nil {
+		return err
+	}
+
+	previous, err := goose.GetPreviousDBVersion(conf.MigrationsDir, current)
+	if err != nil {
+		return err
+	}
+
+	return goose.RunMigrations(conf, conf.MigrationsDir, previous)
+}
+
+func databaseVersion(*cli.Context) error {
+	conf, err := dbConf()
+	if err != nil {
+		return err
+	}
+
+	// collect all migrations
+	migrations, err := goose.CollectMigrations(conf.MigrationsDir)
+	if err != nil {
+		return err
+	}
+
+	db, err := goose.OpenDBFromDBConf(conf)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+
+	// must ensure that the version table exists if we're running on a pristine DB
+	if _, err = goose.EnsureDBVersion(conf, db); err != nil {
+		return err
+	}
+
+	fmt.Println("    Applied At                  Migration")
+	fmt.Println("    =======================================")
+	for _, m := range migrations {
+		if err = printMigrationStatus(db, m.Version, filepath.Base(m.Source)); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func runWorker(c *cli.Context) error {
+	toolbox.StartTask()
+	defer toolbox.StopTask()
 	return nil
 }
 

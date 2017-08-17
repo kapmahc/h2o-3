@@ -33,11 +33,11 @@ func printMigrationStatus(db *sql.DB, version int64, script string) error {
 
 func dbConf() (*goose.DBConf, error) {
 	drv := goose.DBDriver{
-		Name: "databasedriver",
+		Name: beego.AppConfig.String("databasedriver"),
 		DSN:  beego.AppConfig.String("databaseurl"),
 	}
 	switch drv.Name {
-	case "postgres":
+	case postgresqlDriver:
 		drv.Import = "github.com/lib/pq"
 		drv.Dialect = &goose.PostgresDialect{}
 	case "mysql":

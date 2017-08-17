@@ -4,6 +4,9 @@ package-lock.json
 
 # Beego
 /h2o.tar.gz
+/h2o
+/lastupdate.tmp
+/routers/commentsRouter_*.go
 
 # Build
 /build

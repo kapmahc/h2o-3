@@ -27,7 +27,6 @@ func runServer(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-
 	go func() {
 		if err := job.Receive(host); err != nil {
 			beego.Error(err)

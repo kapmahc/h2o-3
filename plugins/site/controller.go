@@ -6,9 +6,3 @@ import "github.com/kapmahc/h2o/nut"
 type Controller struct {
 	nut.Controller
 }
-
-// Home home
-// @router / [get]
-func (p *Controller) Home() {
-
-}

@@ -30,8 +30,8 @@ func E(lang, code string, args ...interface{}) error {
 	return fmt.Errorf(msg, args...)
 }
 
-// H translate html template
-func H(lang, code string, obj interface{}) (string, error) {
+// HT translate html template
+func HT(lang, code string, obj interface{}) (string, error) {
 	msg, err := GetMessage(lang, code)
 	if err != nil {
 		msg = i18n.Tr(lang, code)

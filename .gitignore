@@ -1,0 +1,12 @@
+# Beego
+
+
+# Build
+/build
+/dist.tar.bz2
+
+# Editor
+.*.swp
+.*.un~
+
+# Test

@@ -1,12 +1,13 @@
+# Nodejs
+node_modules
+package-lock.json
+
 # Beego
-
-
-# Build
-/build
-/dist.tar.bz2
+/h2o.tar.gz
 
 # Editor
 .*.swp
 .*.un~
 
 # Test
+/tmp

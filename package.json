@@ -22,6 +22,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
     "jquery": "^3.2.1",
+    "materialize-css": "^0.100.1",
     "popper.js": "^1.12.2"
   }
 }

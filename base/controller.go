@@ -6,3 +6,8 @@ import "github.com/astaxie/beego"
 type Controller struct {
 	beego.Controller
 }
+
+// LayoutApplication set application layout
+func (p *Controller) LayoutApplication() {
+	// TODO
+}

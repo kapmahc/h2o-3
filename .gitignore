@@ -5,6 +5,10 @@ package-lock.json
 # Beego
 /h2o.tar.gz
 
+# Build
+/build
+/h2o.tar.bz2
+
 # Editor
 .*.swp
 .*.un~

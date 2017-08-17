@@ -9,15 +9,30 @@ import (
 	"path/filepath"
 	"time"
 
-	"golang.org/x/text/language"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/toolbox"
+	"github.com/kapmahc/h2o/job"
 	"github.com/steinbacher/goose"
 	"github.com/urfave/cli"
+	"golang.org/x/text/language"
 )
 
 func runServer(c *cli.Context) error {
+
+	toolbox.StartTask()
+	defer toolbox.StopTask()
+
+	beego.Notice("waiting for messages, to exit press CTRL+C")
+	host, err := os.Hostname()
+	if err != nil {
+		return err
+	}
+
+	go func() {
+		if err := job.Receive(host); err != nil {
+			beego.Error(err)
+		}
+	}()
 	beego.Run()
 	return nil
 }
@@ -224,9 +239,17 @@ func databaseVersion(*cli.Context) error {
 }
 
 func runWorker(c *cli.Context) error {
+	name := c.String("name")
+	if name == "" {
+		cli.ShowSubcommandHelp(c)
+		return nil
+	}
+
 	toolbox.StartTask()
 	defer toolbox.StopTask()
-	return nil
+
+	beego.Notice("waiting for messages, to exit press CTRL+C")
+	return job.Receive(name)
 }
 
 func runTodo(c *cli.Context) error {

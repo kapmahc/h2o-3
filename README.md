@@ -17,3 +17,21 @@ zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binsc
 gvm install go1.9rc2 -B
 gvm use go1.9rc2 --default
 ```
+
+## Development
+```
+go get -u github.com/beego/bee
+go get -u github.com:kapmahc/h2o
+cd $GOPATH/src/github.com/kapmahc/h2o
+bee run # start backend at http://localhost:8080
+cd dashboard
+npm install # install packages
+npm start # start frontent at http://localhost:3000
+```
+
+## Deployment
+```
+make clean
+make
+ls h2o.tar.bz2
+```
